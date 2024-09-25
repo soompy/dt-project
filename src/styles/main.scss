@@ -1,0 +1,11 @@
+@import './base/reset';
+@import './base/typography';
+@import './layouts/container';
+@import './layouts/footer';
+@import './layouts/header';
+@import './pages/about';
+@import './pages/home';
+
+body {
+  font-family: Arial, sans-serif;
+}
