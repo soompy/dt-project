@@ -1,25 +1,16 @@
+import ContainerBox from "../components/container/ContainerBox";
+
 const Home = () => {
   return (
     <div>
-      <section>
-        <h2>Section 1</h2>
-        <p>This is the content of section 1.</p>
-      </section>
+      <ContainerBox>
+        <h2>컴포넌트 가져와</h2>
+        <p>유후</p>
+      </ContainerBox>
 
-      <section>
-        <h2>Section 2</h2>
-        <p>This is the content of section 2.</p>
-      </section>
-
-      <section>
-        <h2>Section 3</h2>
-        <p>This is the content of section 3.</p>
-      </section>
-
-      <section>
-        <h2>Section 4</h2>
-        <p>This is the content of section 4.</p>
-      </section>
+      <ContainerBox></ContainerBox>
+      <ContainerBox></ContainerBox>
+      <ContainerBox></ContainerBox>
     </div>
   );
 };
