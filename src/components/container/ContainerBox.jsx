@@ -17,7 +17,9 @@ ContainerBox.propTypes = {
 
 ContainerBox.defaultProps = {
   className: "",
-  style: {},
+  style: {
+    
+  },
 };
 
 export default ContainerBox;
