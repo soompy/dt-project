@@ -1,11 +1,11 @@
-import ContainerBox from "../components/container/ContainerBox";
+import Wrapper from "../components/Layouts/Wrapper";
 
 const Menu = () => {
     return (
       <div>
-        <ContainerBox>
-          
-        </ContainerBox>
+        <Wrapper>
+
+        </Wrapper>
         {/* 메뉴추천 페이지
 
         인기 메뉴(뜨는)

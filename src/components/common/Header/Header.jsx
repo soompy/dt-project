@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <h1>로고</h1>
+        {/* <h1>로고</h1> */}
       </div>
 
       <nav className="nav">
