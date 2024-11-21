@@ -4,7 +4,7 @@ import Home from "./pages/Hone";
 import Menu from "./pages/Menu";
 import Place from "./pages/Place";
 import { ConfigProvider } from "antd";
-import { antdTheme } from "./styles/antdtheme";
+import { antdTheme } from "./styles/theme";
 
 
 const App = () => {
