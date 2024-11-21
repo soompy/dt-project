@@ -1,4 +1,5 @@
-const Button = () => {
-    return <button></button>;
+export const Button = ({ ...props }) => {
+  return (
+    <button style={{ backgroundColor: "black", color: "white" }} {...props} />
+  );
 };
-export default Button;
