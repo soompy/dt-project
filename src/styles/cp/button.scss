@@ -1,0 +1,25 @@
+.lms_btn {
+    font-size: 20px;
+    font-weight: bold;
+    height: 46px;
+    color: #fff;
+    border-radius: 4px;
+    &.size_sm {
+        width: 66px;
+    }
+    &.size_md {
+        width: 106px;
+    }
+    &.size_lg {
+        width: 146px;
+    }
+    &.theme_primary_1 {
+        background: blue;
+    }
+    &.theme_primary_2 {
+        background: orange;
+    }
+    &.basic {
+        background: #555555;
+    }
+}

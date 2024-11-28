@@ -9,7 +9,7 @@ const Home = () => {
     <ConfigProvider theme={antdTheme}>
       <Wrapper className="wrapper">
         <DatePicker></DatePicker>
-        <Button type="primary"></Button>
+        <Button size="md" theme="primary_1" label="ss"></Button>
       </Wrapper>
 
       <Wrapper></Wrapper>
