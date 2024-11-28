@@ -4,9 +4,11 @@
 @import './layouts/wrapper';
 @import './layouts/footer';
 @import './layouts/header';
+@import './layouts/modal';
 @import './pages/menu';
 @import './pages/home';
 @import './cp/button';
+@import './cp/input';
 
 body {
   font-family: Arial, sans-serif;

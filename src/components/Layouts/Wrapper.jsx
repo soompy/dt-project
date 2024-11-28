@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-// import { Space } from "antd";
 
-const Wrapper = ({ className, children, style }) => {
+const Wrapper = ({ className, style, children }) => {
   return (
     <section className={className} style={style}>
-      {children}
+      { children }
     </section>
   );
 };
