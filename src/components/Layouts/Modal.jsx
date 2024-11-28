@@ -7,8 +7,6 @@ import Button from "../common/Button/Button";
 const Modal = ({ visible, setVisible, isCancelMode = false, onClose, themeClass = "" }) => {    
     const [inputValue, setInputValue] = useState("");    
 
-    console.log("Modal Props:", { visible, onClose, isCancelMode, setVisible });
-
     const close = () => {
         setVisible(false);        
         if (onClose) onClose();
