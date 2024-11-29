@@ -37,8 +37,8 @@ const titles = [
     itemClass: "item-class-2",
     value: "key2",
     imageSrc: "image2.jpg",
-    imageAlt: "Image 2",
-    txt2: "Additional text for item 2",
+    imageAlt: "Image 3",
+    txt2: "Additional text for item 3",
   },
 ];
 
@@ -47,16 +47,18 @@ const items = {
   key2: "Item 2 Content",
 }
 
-const customStyle = {
-  group: { margin: "20px 0" },
-  radio: { color: "blue", fontWeight: "bold" },
-};
-const option = [
-  { value: 1, label: "Custom A" },
-  { value: 2, label: "Custom B" },
-  { value: 3, label: "Custom C" },
-  { value: 4, label: "Custom D" },
+const radioOptions = [
+  { value: "o1", label: "Custom A" },
+  { value: "o2", label: "Custom B" },
+  { value: "o3", label: "Custom C" },
+  { value: "o4", label: "Custom D" },
 ];
+const checkboxOptions = [
+  { value: "k1", label: "m A" },
+  { value: "k2", label: "m B" },
+  { value: "k3", label: "m C" },
+  { value: "k4", label: "m D" },
+]
 
 // const items = [
 //   { key: "key1", content: "Item 1 Content" },
@@ -74,14 +76,23 @@ const Home = () => {
       </Wrapper>
 
       <Wrapper className="wrapper-1400"></Wrapper>
-
-      <CheckUi options={option} customStyle={customStyle} />
+            
+      <CheckUi 
+        options={radioOptions}        
+        type="radio" 
+      />
+      
+      <CheckUi
+        options={checkboxOptions}
+        type="checkbox"
+      />
 
       <div>
         <ListCp titles={titles} items={items}>
           {{ 
-            "item.key1": <div>Custom Content for Key 1</div>,
-            "item.key2": <div>Custom Content for Key 2</div>,
+            "item.key1": <div>1번박스</div>,
+            "item.key2": <div>2번박스</div>,
+            "item.key3": <div>3번박스</div>,
           }}
         </ListCp>
 

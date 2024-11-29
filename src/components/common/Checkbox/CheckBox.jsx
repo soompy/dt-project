@@ -1,38 +1,45 @@
 import { Fragment, useState } from 'react';
-import { Radio } from "antd";
+import { Radio, Checkbox } from "antd";
 import PropTypes from 'prop-types';
 
-const CheckUi = ({ options, customStyle }) => {
-  const [value, setValue] = useState(null);
+const CheckUi = ({ options, type = "radio" }) => {
+  const [value, setValue] = useState(type === 'checkbox' ? [] : null);
 
   const onChange = (e) => {    
-    setValue(e.target.value);
+    if (type === "checkbox") {
+      setValue(e);
+    } else {
+      setValue(e.target.value);
+    }
   };
 
-  return (
-    <Radio.Group onChange={onChange} value={value} style={customStyle?.group}>
-      {options.map((option, i) => {
-        return(
-          <Fragment key={i}>
-            <Radio
-              key={option.value}
-              value={option.value}
-              style={customStyle?.radio}
-            >
-              {option.label}
-            </Radio>
-          </Fragment>        
-        )        
-      })}      
+  return type === "radio" ? (
+    <Radio.Group onChange={onChange} value={value}>
+      {options.map((option, i) => (
+        <Fragment key={i}>
+          <Radio value={option.value}>{option.label}</Radio>
+        </Fragment>
+      ))}
     </Radio.Group>
+  ) : (
+    <Checkbox.Group onChange={onChange} value={value}>
+      {options.map((option, i) => (
+        <Fragment key={i}>
+          <Checkbox value={option.value}>{option.label}</Checkbox>
+        </Fragment>
+      ))}
+    </Checkbox.Group>
   );
 };
 
 CheckUi.propTypes = {
-  options: PropTypes.array, 
-  customStyle: PropTypes.object, 
-  value: PropTypes.array,
-  label: PropTypes.array,  
-}
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,  
+  type: PropTypes.oneOf(["radio", "checkbox"]),
+};
 
 export default CheckUi;
