@@ -1,0 +1,16 @@
+.radio_box {
+    .ant-radio-inner {
+        width: 20px;
+        height: 20px;
+        border-color: $primary_2;
+    }
+    .ant-radio-inner::after {
+        background-color: $secondary_2_1;
+    }
+    .ant-radio-checked {
+        .ant-radio-inner {
+            border-color: $secondary_2_1;
+            background-color: $secondary_2_1;
+        }
+    }
+}

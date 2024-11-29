@@ -17,7 +17,7 @@ const CheckUi = ({ options, type = "radio" }) => {
     <Radio.Group onChange={onChange} value={value}>
       {options.map((option, i) => (
         <Fragment key={i}>
-          <Radio value={option.value}>{option.label}</Radio>
+          <Radio className='radio_box' value={option.value}>{option.label}</Radio>
         </Fragment>
       ))}
     </Radio.Group>
@@ -25,7 +25,7 @@ const CheckUi = ({ options, type = "radio" }) => {
     <Checkbox.Group onChange={onChange} value={value}>
       {options.map((option, i) => (
         <Fragment key={i}>
-          <Checkbox value={option.value}>{option.label}</Checkbox>
+          <Checkbox className='checkbox_box' value={option.value}>{option.label}</Checkbox>
         </Fragment>
       ))}
     </Checkbox.Group>
