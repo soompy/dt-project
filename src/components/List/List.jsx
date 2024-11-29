@@ -43,7 +43,9 @@ ListCp.propTypes = {
     })
   ).isRequired,
   items: PropTypes.object.isRequired,
-};
+  // children: PropTypes.object,
+  children: PropTypes.object.isRequired,
 
+};
 
 export default ListCp;

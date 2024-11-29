@@ -57,7 +57,8 @@ const Home = () => {
   return (
     <ConfigProvider theme={antdTheme}>
       <Wrapper className="wrapper-1400">
-        <FlexBox />
+        <FlexBox>1</FlexBox>
+        <FlexBox>2</FlexBox>
       </Wrapper>
 
       <Wrapper className="wrapper-1400"></Wrapper>

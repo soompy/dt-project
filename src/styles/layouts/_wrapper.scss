@@ -5,3 +5,24 @@
     max-width: 1400px;
     margin: auto;    
 }
+
+.list {
+    position: relative;
+    display: flex;
+
+    li {
+        border: 1px solid $secondary_1_1;
+        border-radius: 10px;
+        box-shadow: $boxShadow;        
+    }
+}
+
+.flexCont {
+    position: relative;    
+    padding: 20px;
+    height: auto;
+
+    div {
+        width: 100%;        
+    }
+}
