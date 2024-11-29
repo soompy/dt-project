@@ -75,19 +75,19 @@ const Home = () => {
         <FlexBox>2</FlexBox>
       </Wrapper>
 
-      <Wrapper className="wrapper-1400"></Wrapper>
-            
-      <CheckUi 
-        options={radioOptions}        
-        type="radio" 
-      />
-      
-      <CheckUi
-        options={checkboxOptions}
-        type="checkbox"
-      />
+      <Wrapper className="wrapper-1400">
+        <CheckUi 
+          options={radioOptions}        
+          type="radio" 
+        />
+        
+        <CheckUi
+          options={checkboxOptions}
+          type="checkbox"
+        />
+      </Wrapper>            
 
-      <div>
+      <Wrapper className="wrapper-1400">
         <ListCp titles={titles} items={items}>
           {{ 
             "item.key1": <div>1번박스</div>,
@@ -109,7 +109,7 @@ const Home = () => {
                 isCancelMode={false} 
             />
         </>
-      </div>
+      </Wrapper>      
     </ConfigProvider>
   );
   
