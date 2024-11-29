@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import "../../../styles/cp/button.scss";
 
 const Button = ({ height = 46, isEnabled = true, size = "sm", theme = "", label, onClick }) => {
     const handleClick = () => {

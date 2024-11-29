@@ -6,6 +6,7 @@ import { antdTheme } from "../styles/theme";
 import Modal from "../components/Layouts/Modal";
 import FlexBox from "../components/Layouts/Flexbox";
 import ListCp from "../components/List/List";
+import CheckUi from "../components/common/Checkbox/CheckBox";
 
 const titles = [
   {
@@ -46,6 +47,17 @@ const items = {
   key2: "Item 2 Content",
 }
 
+const customStyle = {
+  group: { margin: "20px 0" },
+  radio: { color: "blue", fontWeight: "bold" },
+};
+const option = [
+  { value: 1, label: "Custom A" },
+  { value: 2, label: "Custom B" },
+  { value: 3, label: "Custom C" },
+  { value: 4, label: "Custom D" },
+];
+
 // const items = [
 //   { key: "key1", content: "Item 1 Content" },
 //   { key: "key2", content: "Item 2 Content" },
@@ -62,6 +74,8 @@ const Home = () => {
       </Wrapper>
 
       <Wrapper className="wrapper-1400"></Wrapper>
+
+      <CheckUi options={option} customStyle={customStyle} />
 
       <div>
         <ListCp titles={titles} items={items}>

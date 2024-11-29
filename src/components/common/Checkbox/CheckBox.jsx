@@ -1,12 +1,38 @@
-// [2024 리액트 컴포넌트 도움글] https://fe-developers.kakaoent.com/2024/240116-common-component/
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
+import { Radio } from "antd";
+import PropTypes from 'prop-types';
 
-export default function Checkbox() {
-  const [checked, setChecked] = useState(false);
+const CheckUi = ({ options, customStyle }) => {
+  const [value, setValue] = useState(null);
+
+  const onChange = (e) => {    
+    setValue(e.target.value);
+  };
 
   return (
-    <div onClick={() => setChecked(!checked)}>
-      {/* {checked ? <CheckedIcon /> : <UncheckedIcon />} */}
-    </div>
+    <Radio.Group onChange={onChange} value={value} style={customStyle?.group}>
+      {options.map((option, i) => {
+        return(
+          <Fragment key={i}>
+            <Radio
+              key={option.value}
+              value={option.value}
+              style={customStyle?.radio}
+            >
+              {option.label}
+            </Radio>
+          </Fragment>        
+        )        
+      })}      
+    </Radio.Group>
   );
+};
+
+CheckUi.propTypes = {
+  options: PropTypes.array, 
+  customStyle: PropTypes.object, 
+  value: PropTypes.array,
+  label: PropTypes.array,  
 }
+
+export default CheckUi;
