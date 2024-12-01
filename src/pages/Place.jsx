@@ -1,33 +1,51 @@
-import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-const Place = () => {  
+const Place = () => {
   const container = useRef();
 
-    useGSAP(
-        () => {
-            // gsap code here...
-            gsap.to('.box', { rotation: 180 }); // <-- automatically reverted
-        },
-        { scope: container }
-    ); 
+  useGSAP(
+    () => {
+      // gsap code here...
+      gsap.to(".visual", { rotation: 180 }); // <-- automatically reverted
+    },
+    { scope: container }
+  );
 
   return (
+    <div className="place">     
+      <div ref={container}>
+        <section className="visual">
+          <div className="wrapper-1400"></div>
+          <span className="obj_box">
+            <em className="obj _1"></em>
+            <em className="obj _2"></em>
+            <em className="obj _3"></em>
+          </span>
+        </section>
 
+        <section className="cont_1 place_cont">
+          <div className="wrapper-1400"></div>
+        </section>
 
-    <div className="place">
-      
-      <section className="wrapper-1400">
-        {/* <p className="txt txt1">txt1</p>
-        <p className="txt txt2">txt2</p> */}
-        
-      </section>
+        <section className="cont_2 place_cont">
+          <div className="wrapper-1400"></div>
+        </section>
 
-      <div ref={container} className="app">
-        <div className="box">Hello</div>
+        <section className="cont_3 place_cont">
+          <div className="wrapper-1400"></div>
+        </section>
+
+        <section className="cont_4 place_cont">
+          <div className="wrapper-1400"></div>
+        </section>
+
+        <section className="cont_5 place_cont">
+          <div className="wrapper-1400"></div>
+        </section>
       </div>
     </div>
   );
