@@ -4,6 +4,8 @@ import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swipercp from "../components/Layouts/Swipercp";
 import Calendarcp from "../components/Layouts/Calendar";
+import { Typography } from "antd";
+const { Title } = Typography;
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -12,9 +14,6 @@ const Place = () => {
     const [isActiveMotion, setIsActiveMotion] = useState(false);
     const tl1 = useRef(null);
     const tl2 = useRef(null);
-
-    const tlCont1 = useRef(null);
-    const [isActiveText, setIsActiveText] = useState(false);
 
     useGSAP(
         () => {
@@ -41,29 +40,28 @@ const Place = () => {
                 .to(".obj4", { delay: -0.3, opacity: 1, duration: 0.3 });
         };
 
-        const textMotion = () => {
-            gsap.set(".text.text1, .text.text2", {
-                delay: 0,
-                opacity: 0,
-                duration: 0,
-                ease: "linear",
+        const textMotions = document.querySelectorAll(".text");
+        textMotions.forEach((text) => {
+            let tlText = gsap.timeline({
+                scrollTrigger: {
+                    text,
+                    pin: true,
+                    pinSpacing: false,
+                    scrub: true,
+                },
             });
-
-            tlCont1.current = gsap
-                .timeline({ onComplete: () => setIsActiveText(true) })
-                .to(".text1", {
-                    delay: 0,
-                    opacity: 1,
-                    fontSize: 0,
-                    duration: 0.3,
+            tlText
+                .to(text, {
+                    autoAlpha: 1,
                 })
-                .to(".text2", {
-                    delay: -0.2,
-                    opacity: 1,
-                    fontSize: 0,
-                    duration: 0.3,
-                });
-        };
+                .to(
+                    text,
+                    {
+                        autoAlpha: 0,
+                    },
+                    0.5
+                );
+        });
 
         const sectionScrollMotion = () => {
             tl2.current = gsap
@@ -87,7 +85,7 @@ const Place = () => {
         };
 
         visualMotion();
-        textMotion();
+
         sectionScrollMotion();
 
         return () => {
@@ -96,6 +94,7 @@ const Place = () => {
     }, []);
 
     return (
+        // 인터렉션 참고 https://gsap.com/community/forums/topic/28175-how-to-use-scrolltrigger-change-texts/
         <div className="place">
             <div ref={container}>
                 <section
@@ -117,9 +116,22 @@ const Place = () => {
 
                 <section className="cont_1 place_cont">
                     <div className="wrapper-1400">
-                        <div className={`${isActiveText ? "fixed" : ""}`}>
-                            <p className="text text1">1번이다아</p>
-                            <p className="text text2">2번이다아</p>
+                        <div>
+                            <Title level={5} className="text text1">
+                                dddd
+                            </Title>
+                            <Title level={4} className="text text2">
+                                dddd
+                            </Title>
+                            <Title level={3} className="text text3">
+                                dddd
+                            </Title>
+                            <Title level={2} className="text text4">
+                                dddd
+                            </Title>
+                            <Title level={1} className="text text5">
+                                dddd
+                            </Title>
                         </div>
                     </div>
                 </section>
