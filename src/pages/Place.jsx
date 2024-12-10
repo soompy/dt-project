@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swipercp from "../components/Layouts/Swipercp";
 import Calendarcp from "../components/Layouts/Calendar";
-import { Typography } from "antd";
-const { Title } = Typography;
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -39,29 +37,6 @@ const Place = () => {
                 .to(".obj3", { delay: -0.2, opacity: 1, duration: 0.3 })
                 .to(".obj4", { delay: -0.3, opacity: 1, duration: 0.3 });
         };
-
-        const textMotions = document.querySelectorAll(".text");
-        textMotions.forEach((text) => {
-            let tlText = gsap.timeline({
-                scrollTrigger: {
-                    text,
-                    pin: true,
-                    pinSpacing: false,
-                    scrub: true,
-                },
-            });
-            tlText
-                .to(text, {
-                    autoAlpha: 1,
-                })
-                .to(
-                    text,
-                    {
-                        autoAlpha: 0,
-                    },
-                    0.5
-                );
-        });
 
         const sectionScrollMotion = () => {
             tl2.current = gsap
@@ -101,7 +76,7 @@ const Place = () => {
                 <section
                     className={`visual ${isActiveMotion ? "is_active" : ""}`}
                 >
-                    <div className="wrapper-1400"></div>
+                    <div className="wrapper_1400"></div>
                     <span className="obj_box">
                         <em className="obj obj0"></em>
                         <em className="obj obj1"></em>
@@ -116,39 +91,21 @@ const Place = () => {
                 </section>
 
                 <section className="cont_1 place_cont">
-                    <div className="wrapper-1400">
-                        <div>
-                            <Title level={5} className="text text1">
-                                dddd
-                            </Title>
-                            <Title level={4} className="text text2">
-                                dddd
-                            </Title>
-                            <Title level={3} className="text text3">
-                                dddd
-                            </Title>
-                            <Title level={2} className="text text4">
-                                dddd
-                            </Title>
-                            <Title level={1} className="text text5">
-                                dddd
-                            </Title>
-                        </div>
-                    </div>
+                    <div className="wrapper_1400"></div>
                 </section>
 
                 <section className="cont_2 place_cont">
-                    <div className="wrapper-1400"></div>
+                    <div className="wrapper_1400"></div>
                 </section>
 
                 <section className="cont_3 place_cont">
-                    <div className="wrapper-1400">
+                    <div className="wrapper_1400">
                         <Swipercp></Swipercp>
                     </div>
                 </section>
 
                 <section className="cont_4 place_cont">
-                    <div className="wrapper-1400">
+                    <div className="wrapper_1400">
                         <div className="swiper-container">
                             <Calendarcp />
                         </div>
@@ -156,7 +113,7 @@ const Place = () => {
                 </section>
 
                 <section className="cont_5 place_cont">
-                    <div className="wrapper-1400"></div>
+                    <div className="wrapper_1400"></div>
                 </section>
             </div>
         </div>

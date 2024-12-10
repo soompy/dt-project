@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { ConfigProvider, DatePicker } from "antd";
+import { DatePicker } from "antd";
 import Wrapper from "../components/Layouts/Wrapper";
 import Button from "../components/common/Button/Button";
-import { antdTheme } from "../styles/theme";
 import Modal from "../components/Layouts/Modal";
 import FlexBox from "../components/Layouts/Flexbox";
 import ListCp from "../components/List/List";
 import CheckUi from "../components/common/Checkbox/CheckBox";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import PropTypes from "prop-types";
+import { Typography } from "antd";
+const { Title } = Typography;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,19 +99,49 @@ const Home = () => {
     }, []);
 
     return (
-        <ConfigProvider theme={antdTheme}>
-            <Wrapper className="wrapper-1400">
+        <div>
+            <Wrapper className="wrapper_1400">
+                <div className="full_text_hero">
+                    <Title level={5} className="hero_text _1">
+                        ttt
+                    </Title>
+                    <Title level={4} className="hero_text _2">
+                        rrrr
+                    </Title>
+                    <Title level={3} className="hero_text _3">
+                        ssssss
+                    </Title>
+                    <Title level={2} className="hero_text _4">
+                        zzzzzzzz
+                    </Title>
+                </div>
+
+                {/* 움직이는 오브젝트 ex) 공이 튀기는 */}
+            </Wrapper>
+
+            <Wrapper className="wrapper_1400 flex_center_column">
+                <h3>question</h3>
+                <p className="text_gradient">suggestion</p>
+                <Button
+                    size="lg"
+                    theme="primary_1"
+                    type="rounded"
+                    label="Go"
+                ></Button>
+            </Wrapper>
+
+            <Wrapper className="wrapper_1400">
                 <FlexBox>1</FlexBox>
                 <FlexBox>2</FlexBox>
             </Wrapper>
 
-            <Wrapper className="wrapper-1400">
+            <Wrapper className="wrapper_1400">
                 <CheckUi options={radioOptions} type="radio" />
 
                 <CheckUi options={checkboxOptions} type="checkbox" />
             </Wrapper>
 
-            <Wrapper className="wrapper-1400">
+            <Wrapper className="wrapper_1400">
                 <ListCp titles={titles} items={items}>
                     {{
                         "item.key1": <div>1번박스</div>,
@@ -137,17 +169,17 @@ const Home = () => {
                     />
                 </>
             </Wrapper>
-
-            <Wrapper className="wrapper-1400">
-                <div className="full_text_hero">
-                    <p className="hero_text _1">ttt</p>
-                    <p className="hero_text _2">rrrr</p>
-                    <p className="hero_text _3">ssssss</p>
-                    <p className="hero_text _4">zzzzzzzz</p>
-                </div>
-            </Wrapper>
-        </ConfigProvider>
+        </div>
     );
+};
+
+Button.propTypes = {
+    height: PropTypes.number,
+    isEnabled: PropTypes.bool,
+    size: PropTypes.oneOf(["sm", "md", "lg"]),
+    theme: PropTypes.oneOf(["primary_1", "primary_2", ""]),
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
 };
 
 export default Home;
