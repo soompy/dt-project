@@ -1,14 +1,76 @@
-import { Table } from "antd";
-import { Pagination } from "antd";
+// 글쓰기 기능 만들기 https://jaypedia.tistory.com/150
+import { useState } from "react";
+import { Table, Pagination, Button, Flex } from "antd";
+const columns = [
+    {
+        title: "Name",
+        dataIndex: "name",
+    },
+    {
+        title: "Age",
+        dataIndex: "age",
+    },
+    {
+        title: "Address",
+        dataIndex: "address",
+    },
+];
+
+const dataSource = Array.from({
+    length: 46,
+}).map((_, i) => ({
+    key: i,
+    name: `Edward King ${i}`,
+    age: 32,
+    address: `London, Park Lane no. ${i}`,
+}));
+// https://ant.design/components/table
 
 const BoardCp = () => {
+    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const start = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setSelectedRowKeys([]);
+            setLoading(false);
+        }, 1000);
+    };
+
+    const onSelectChange = (newSelectedRowKeys) => {
+        console.log("selectedRowKeys changed: ", newSelectedRowKeys);
+        setSelectedRowKeys(newSelectedRowKeys);
+    };
+    const rowSelection = {
+        selectedRowKeys,
+        onChange: onSelectChange,
+    };
+    const hasSelected = selectedRowKeys.length > 0;
+
     return (
         <section>
-            <Table
-                columns={columns}
-                dataSource={dataSource}
-                pagination={false}
-            />
+            <Flex gap="middle" vertical>
+                <Flex align="center" gap="middle">
+                    <Button
+                        type="primary"
+                        onClick={start}
+                        disabled={!hasSelected}
+                        loading={loading}
+                    >
+                        Reload
+                    </Button>
+                    {hasSelected
+                        ? `Selected ${selectedRowKeys.length} items`
+                        : null}
+                </Flex>
+                <Table
+                    rowSelection={rowSelection}
+                    columns={columns}
+                    dataSource={dataSource}
+                    pagination={false}
+                />
+            </Flex>
             <Pagination defaultCurrent={1} total={50}></Pagination>
         </section>
     );
