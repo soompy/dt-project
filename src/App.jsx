@@ -6,6 +6,7 @@ import Place from "./pages/Place";
 import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
+import Notice from "./pages/Notice";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -42,6 +43,8 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/menu" element={<Menu />} />
                     <Route path="/place" element={<Place />} />
+                    {/* <Route path="/community" element={<Communi />} /> */}
+                    <Route path="/notice" element={<Notice />} />
                 </Routes>
             </section>
         </ConfigProvider>

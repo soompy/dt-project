@@ -16,6 +16,12 @@ const Header = () => {
                     <li>
                         <Link to="/place">Place</Link>
                     </li>
+                    <li>
+                        <Link to="/community">Community</Link>
+                    </li>
+                    <li>
+                        <Link to="/notice">Notice</Link>
+                    </li>
                 </ul>
             </nav>
             {/* 
