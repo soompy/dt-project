@@ -3,6 +3,7 @@ import Header from "./components/common/Header/Header";
 import Home from "./pages/Hone";
 import Menu from "./pages/Menu";
 import Place from "./pages/Place";
+import Community from "./pages/Community";
 import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
@@ -48,7 +49,7 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/menu" element={<Menu />} />
                     <Route path="/place" element={<Place />} />
-                    {/* <Route path="/community" element={<Communi />} /> */}
+                    <Route path="/community" element={<Community />} />
                     <Route path="/notice" element={<Notice />} />
                 </Routes>
             </section>
