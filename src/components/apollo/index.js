@@ -1,5 +1,3 @@
-import ReactDOM from "react-dom/client";
-
 import {
     ApolloProvider,
     ApolloClient,
@@ -31,7 +29,7 @@ function ApolloSetting(props) {
         cache: new InMemoryCache(),
     });
 
-    <ApolloProvider client={client}>{props.child}</ApolloProvider>;
+    <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }
 
 export default ApolloSetting;

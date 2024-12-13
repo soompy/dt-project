@@ -1,15 +1,25 @@
-import InputArea from "../../../components/common/Input/Input";
+import { gql } from "@apollo/client";
 
-// notice작성하는 부분
-const NoticeWrite = () => {
-    return (
-        <section className="notice_write">
-            <div className="title_box">
-                <span className="title">제목</span>
-                <InputArea></InputArea>
-            </div>
-        </section>
-    );
-};
+export const 나의그래프큐엘셋팅 = gql`
+    mutation createBoard($createBoardInput: CreateBoardInput!) {
+        createBoard(createBoardInput: $createBoardInput) {
+            _id
+        }
+    }
+`;
 
-export default NoticeWrite;
+export const UPDATE_BOARD = gql`
+    mutation updateBoard(
+        $boardId: ID!
+        $password: String
+        $updateBoardInput: UpdateBoardInput!
+    ) {
+        updateBoard(
+            boardId: $boardId
+            password: $password
+            updateBoardInput: $updateBoardInput
+        ) {
+            _id
+        }
+    }
+`;

@@ -24,7 +24,6 @@ const dataSource = Array.from({
     age: 32,
     address: `London, Park Lane no. ${i}`,
 }));
-// https://ant.design/components/table
 
 const BoardCp = () => {
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);

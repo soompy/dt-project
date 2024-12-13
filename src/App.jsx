@@ -22,9 +22,6 @@ const App = () => {
                   colorSecondary: "#d89614",
                   colorBgBase: "#1a1a1a",
                   colorTextBase: "#fff",
-                  colorSuccess: "#3a8d1e",
-                  colorWarning: "#d48806",
-                  colorError: "#a8071a",
               },
           }
         : antdTheme;
