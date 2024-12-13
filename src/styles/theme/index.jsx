@@ -7,9 +7,11 @@ const antdTheme = {
         // Global Tokens
         colorPrimary: variables.primary_1,
         colorSecondary: variables.secondary_1_3,
-        colorTextBase: variables.color_white,
-        colorBgBase: variables.color_black,
-        boxShadowBase: variables.boxShadow,
+        colorBgBase: variables.color_white,
+        colorTextBase: variables.color_black,
+        // colorSuccess: variables.color_success,
+        // colorWarning: variables.color_warning,
+        // colorError: variables.color_error,
     },
     components: {
         // component token

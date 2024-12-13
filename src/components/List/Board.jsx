@@ -1,6 +1,6 @@
 // 글쓰기 기능 만들기 https://jaypedia.tistory.com/150
 import { useState } from "react";
-import { Table, Pagination, Button, Flex } from "antd";
+import { Table, Button, Flex } from "antd";
 const columns = [
     {
         title: "Name",
@@ -68,10 +68,9 @@ const BoardCp = () => {
                     rowSelection={rowSelection}
                     columns={columns}
                     dataSource={dataSource}
-                    pagination={false}
+                    pagination={true}
                 />
             </Flex>
-            <Pagination defaultCurrent={1} total={50}></Pagination>
         </section>
     );
 };

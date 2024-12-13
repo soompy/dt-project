@@ -17,8 +17,13 @@ const App = () => {
               ...antdTheme,
               token: {
                   ...antdTheme.token,
+                  colorPrimary: "#3c89e8",
+                  colorSecondary: "#d89614",
                   colorBgBase: "#1a1a1a",
                   colorTextBase: "#fff",
+                  colorSuccess: "#3a8d1e",
+                  colorWarning: "#d48806",
+                  colorError: "#a8071a",
               },
           }
         : antdTheme;
@@ -37,7 +42,7 @@ const App = () => {
             >
                 <Header />
                 <Button type="primary" onClick={toggleTheme}>
-                    Toggle Dark Mode
+                    다크모드
                 </Button>
                 <Routes>
                     <Route path="/" element={<Home />} />
