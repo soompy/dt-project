@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DatePicker } from "antd";
 import Wrapper from "../components/Layouts/Wrapper";
 import Button from "../components/common/Button/Button";
@@ -11,8 +11,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import PropTypes from "prop-types";
 import { Typography } from "antd";
 const { Title } = Typography;
+import { useGSAP } from "@gsap/react/dist";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const titles = [
     {
@@ -74,6 +75,19 @@ const checkboxOptions = [
 const Home = () => {
     const [isModalVisible, setModalVisible] = useState(false);
 
+    const container = useRef();
+    const [isActiveMotion, setIsActiveMotion] = useState(false);
+
+    useGSAP(
+        () => {
+            gsap.to(".cont_1", { rotation: 360 });
+        },
+        { scope: container }
+    );
+
+    const tl1 = useRef(null);
+    const tl2 = useRef(null);
+
     useEffect(() => {
         let tlHero = gsap.timeline({
             scrollTrigger: {
@@ -96,6 +110,51 @@ const Home = () => {
                 { opacity: 0, duration: 0.2, stagger: 0.1 },
                 0.8
             );
+
+        const visualMotion = () => {
+            gsap.set(".obj1, obj2, obj3, obj4, obj5", {
+                delay: 0,
+                opacity: 0,
+                duration: 0,
+                ease: "none",
+            });
+
+            tl1.current = gsap
+                .timeline({ onComplete: () => setIsActiveMotion(true) })
+                .to(".obj0", { delay: 0, opacity: 1, duration: 0.3 })
+                .to(".obj1", { delay: -0.1, opacity: 1, duration: 0.3 })
+                .to(".obj2", { delay: -0.1, opacity: 1, duration: 0.3 })
+                .to(".obj3", { delay: -0.2, opacity: 1, duration: 0.3 })
+                .to(".obj4", { delay: -0.3, opacity: 1, duration: 0.3 });
+        };
+
+        const sectionScrollMotion = () => {
+            tl2.current = gsap
+                .timeline()
+                .to(".img1", { opacity: 1, y: 0, duration: 0.5 })
+                .to(".img1", { opacity: 1, duration: 1 })
+                .to(".img1", { opacity: 0, y: -50, duration: 0.1 })
+                .to(".img2", { opacity: 1, y: 0, duration: 0.5 })
+                .to(".img2", { opacity: 1, duration: 1 })
+                .to(".img2", { opacity: 0, y: -50, duration: 0.1 });
+
+            ScrollTrigger.create({
+                trigger: ".visual",
+                start: "top",
+                end: "bottom+=50%",
+                pin: true,
+                pinSpacing: true,
+                animation: tl2.current,
+                scrub: 0.5,
+            });
+        };
+
+        visualMotion();
+        sectionScrollMotion();
+
+        return () => {
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
     }, []);
 
     return (
@@ -117,6 +176,55 @@ const Home = () => {
                 </div>
 
                 {/* 움직이는 오브젝트 ex) 공이 튀기는 */}
+            </Wrapper>
+
+            <Wrapper className="wrapper_1400">
+                <div ref={container}>
+                    <section
+                        className={`visual ${
+                            isActiveMotion ? "is_active" : ""
+                        }`}
+                    >
+                        <div className="wrapper_1400"></div>
+                        <span className="obj_box">
+                            <em className="obj obj0"></em>
+                            <em className="obj obj1"></em>
+                            <em className="obj obj2"></em>
+                            <em className="obj obj3"></em>
+                            <em className="obj obj4"></em>
+                        </span>
+                        <span className="img_box">
+                            <img className="img img1" src="" alt="" />
+                            <img className="img img2" src="" alt="" />
+                        </span>
+                    </section>
+
+                    <section className="cont_1 place_cont">
+                        <div className="wrapper_1400"></div>
+                    </section>
+
+                    <section className="cont_2 place_cont">
+                        <div className="wrapper_1400"></div>
+                    </section>
+
+                    <section className="cont_3 place_cont">
+                        <div className="wrapper_1400">
+                            <Swipercp></Swipercp>
+                        </div>
+                    </section>
+
+                    <section className="cont_4 place_cont">
+                        <div className="wrapper_1400">
+                            <div className="swiper-container">
+                                <Calendarcp />
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="cont_5 place_cont">
+                        <div className="wrapper_1400"></div>
+                    </section>
+                </div>
             </Wrapper>
 
             <Wrapper className="wrapper_1400 flex_center_column">
