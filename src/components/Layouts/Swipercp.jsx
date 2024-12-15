@@ -37,7 +37,7 @@ const commonSwiperOption = {
     observeParent: false,
 };
 
-const Swipercp = () => {
+const SwiperCp = () => {
     return (
         <div>
             <Carousel
@@ -119,4 +119,4 @@ const Swipercp = () => {
     );
 };
 
-export default Swipercp;
+export default SwiperCp;

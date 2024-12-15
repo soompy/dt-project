@@ -33,7 +33,7 @@ const FlexBox = ({ children }) => {
               key={i}
               style={{
                 ...baseStyle,
-                backgroundColor: i % 2 ? "#1677ff" : "#1677ffbf",
+                backgroundColor: i % 2 ? "#ccc" : "#eee",
               }}
             >
               {children}

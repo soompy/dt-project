@@ -1,7 +1,7 @@
 import { Calendar, Badge } from "antd";
 import { useState } from "react";
 
-const Calendarcp = () => {
+const CalendarCp = () => {
     const getListData = (value) => {
         let listData;
         if (value.date() === 8) {
@@ -61,4 +61,4 @@ const Calendarcp = () => {
     );
 };
 
-export default Calendarcp;
+export default CalendarCp;
