@@ -1,4 +1,10 @@
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import {
+    Autoplay,
+    Navigation,
+    Pagination,
+    Scrollbar,
+    A11y,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -6,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import { Carousel } from "antd";
+import { useEffect } from "react";
 const contentStyle = {
     height: "160px",
     color: "#fff",
@@ -30,14 +37,27 @@ const commonSwiperOption = {
     loop: true,
     autoplay: { delay: 0, disableOnInteraction: false },
     speed: 5000,
-    sliderPerView: "auto",
+    slidesPerView: "auto",
     spaceBetween: 10,
     allowTouchMove: false,
     observer: true,
-    observeParent: false,
+    // observeParent: false,
 };
 
 const SwiperCp = () => {
+    useEffect(() => {
+        const slides = document.querySelectorAll(".swiper-slide");
+        slides.forEach((slide) => {
+            const isHidden = slide.getAttribute("aria-hidden") === "true";
+            const focusableElements = slide.querySelectorAll(
+                "a, button, input, textarea, select"
+            );
+            focusableElements.forEach((element) => {
+                element.setAttribute("tabindex", isHidden ? "-1" : "0");
+            });
+        });
+    }, []);
+
     return (
         <div>
             <Carousel
@@ -61,15 +81,16 @@ const SwiperCp = () => {
             </Carousel>
             {/* 무한 좌우롤링 각 역방향 */}
             <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={3}
                 navigation
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log("slide change")}
-                autoplay={true}
+                autoplay={{
+                    delay: 4500,
+                    disableOnInteraction: false,
+                }}
             >
                 <SwiperSlide>Slide 1</SwiperSlide>
                 <SwiperSlide>Slide 1</SwiperSlide>
@@ -93,15 +114,15 @@ const SwiperCp = () => {
             </Swiper>
 
             <Swiper {...commonSwiperOption}>
-                {ani1Slides.map((slide) => {
+                {ani1Slides.map((slide) => (
                     <SwiperSlide key={slide.id}>
                         <div className="slide-content">
                             <p>{slide.branchName}</p>
                             <p>{slide.name}</p>
                             <p>{slide.univ}</p>
                         </div>
-                    </SwiperSlide>;
-                })}
+                    </SwiperSlide>
+                ))}
             </Swiper>
 
             <Swiper {...commonSwiperOption}>
