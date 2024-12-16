@@ -6,5 +6,12 @@
     }
 }
 .inputDiv {
+    display: flex;
     background: #eee;
+    input {
+        flex: 2;        
+    }
+    button {
+        flex: 1;
+    }
 }

@@ -76,20 +76,20 @@ const Chatbot = () => {
                 ))}
             </div>
             <div className="inputDiv">
-                {/* <InputArea
-                    type="text"
-                    placeholder="메시지를 입력하세요"
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                /> */}
-                <input
+                <InputArea
                     type="text"
                     placeholder="메시지를 입력하세요"
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
+                {/* <input
+                    type="text"
+                    placeholder="메시지를 입력하세요"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                /> */}
                 <button onClick={handleSendMessage}>전송</button>
             </div>
         </div>
