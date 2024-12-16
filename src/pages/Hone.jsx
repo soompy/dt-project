@@ -215,7 +215,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <Wrapper className="cont_3 zoom ">
+            <Wrapper className="cont_3">
                 <div className="threeD_vision">
                     <div className="vision_box">
                         <h3>question</h3>
