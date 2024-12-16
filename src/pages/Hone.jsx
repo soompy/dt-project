@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { DatePicker } from "antd";
 import Wrapper from "../components/Layouts/Wrapper";
 import Button from "../components/common/Button/Button";
 import Modal from "../components/Layouts/Modal";
@@ -166,65 +165,29 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
-            <Wrapper className="wrapper_1400">
-                <div ref={container}>
-                    <section
-                        className={`visual ${
-                            isActiveMotion ? "is_active" : ""
-                        }`}
-                    >
-                        <div className="wrapper_1400"></div>
-                        <div className="obj_box">
-                            <span className="obj obj0">
-                                <img src={mandu00} alt="만두 최고야" />
-                            </span>
-                            <span className="obj obj1">
-                                <img src={mandu01} alt="만두 이뻐" />
-                            </span>
-                            <span className="obj obj2">
-                                <img src={mandu02} alt="만두 잘했어" />
-                            </span>
-                            <span className="obj obj3">
-                                <img src={mandu03} alt="만두 하면된다" />
-                            </span>
-                            <span className="obj obj4">
-                                <img src={mandu04} alt="만두 또만나요" />
-                            </span>
-                        </div>
-                    </section>
-
-                    <section className="cont_1 place_cont">
-                        <div className="wrapper_1400"></div>
-                    </section>
-
-                    <section className="cont_2 place_cont">
-                        <div className="wrapper_1400"></div>
-                    </section>
-
-                    <section className="cont_3 place_cont">
-                        <div className="wrapper_1400">
-                            <SliderCp bannerList={bannerList}></SliderCp>
-                            <SliderCp
-                                bannerList={bannerList}
-                                isReverse="true"
-                            ></SliderCp>
-                        </div>
-                    </section>
-
-                    <section className="cont_4 place_cont">
-                        <div className="wrapper_1400">
-                            <div className="swiper-container"></div>
-                        </div>
-                    </section>
-
-                    <section className="cont_5 place_cont">
-                        <div className="wrapper_1400"></div>
-                    </section>
+        <div ref={container}>
+            <section className={`visual ${isActiveMotion ? "is_active" : ""}`}>
+                <div className="wrapper_1400"></div>
+                <div className="obj_box">
+                    <span className="obj obj0">
+                        <img src={mandu00} alt="만두 최고야" />
+                    </span>
+                    <span className="obj obj1">
+                        <img src={mandu01} alt="만두 이뻐" />
+                    </span>
+                    <span className="obj obj2">
+                        <img src={mandu02} alt="만두 잘했어" />
+                    </span>
+                    <span className="obj obj3">
+                        <img src={mandu03} alt="만두 하면된다" />
+                    </span>
+                    <span className="obj obj4">
+                        <img src={mandu04} alt="만두 또만나요" />
+                    </span>
                 </div>
-            </Wrapper>
+            </section>
 
-            <Wrapper className="wrapper_1400">
+            <section className="cont_1">
                 <div className="full_text_hero">
                     <Title level={5} className="hero_text _1">
                         ttt
@@ -240,17 +203,46 @@ const Home = () => {
                     </Title>
                 </div>
                 {/* 움직이는 오브젝트 ex) 공이 튀기는 */}
+            </section>
+
+            <section className="cont_2">
+                <div className="wrapper_1400">
+                    <SliderCp bannerList={bannerList}></SliderCp>
+                    <SliderCp
+                        bannerList={bannerList}
+                        isReverse="true"
+                    ></SliderCp>
+                </div>
+            </section>
+
+            <Wrapper className="cont_3 zoom ">
+                <div className="threeD_vision">
+                    <div className="vision_box">
+                        <h3>question</h3>
+                        <p className="text_gradient">suggestion</p>
+                    </div>
+                    <div className="vision_box">
+                        <h3>question</h3>
+                        <p className="text_gradient">suggestion</p>
+                    </div>
+                    <div className="vision_box">
+                        <h3>question</h3>
+                        <p className="text_gradient">suggestion</p>
+                    </div>
+                </div>
             </Wrapper>
 
-            <Wrapper className="wrapper_1400 flex_center_column">
-                <h3>question</h3>
-                <p className="text_gradient">suggestion</p>
-                <Button
-                    size="lg"
-                    theme="primary_1"
-                    type="rounded"
-                    label="Go"
-                ></Button>
+            <Button
+                size="lg"
+                theme="primary_1"
+                type="rounded"
+                label="Go"
+            ></Button>
+
+            <Wrapper className="wrapper_1400">
+                <section className="cont_4"></section>
+
+                <section className="cont_5"></section>
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
@@ -272,8 +264,6 @@ const Home = () => {
                         "item.key3": <div>3번박스</div>,
                     }}
                 </ListCp>
-
-                <DatePicker />
 
                 <Button size="md" theme="primary_1" label="test"></Button>
 

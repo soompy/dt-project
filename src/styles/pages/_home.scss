@@ -1,3 +1,4 @@
+section {padding: 0 !important;}
 .visual {    
     position: relative;
     width: 100%;
@@ -89,4 +90,59 @@
         font-size: 50px;    
         transition: all .5s ease-in-out;
     }
+}
+
+.cont_3 {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background: $secondary_2_3;
+    .threeD_vision {
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        perspective-origin: center 60%;
+        .vision_box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            &:nth-of-type(1) {
+                z-index: 5;
+                background: $secondary_2_3;
+                animation: zoomin1 5s linear 2s forwards alternate;            
+            }
+            &:nth-of-type(2) {
+                z-index: 3;                
+                transform: translate3d( 0, 0, -1000px );
+                animation: zoomin2 5s linear 2s forwards alternate ;
+            }
+            &:nth-of-type(3) {
+                z-index: 1;                
+                transform: translate3d( 0, 0, -2000px );
+                animation: zoomin3 5s linear 2s forwards alternate ;
+            }
+        }
+    }    
+}
+
+@keyframes zoomin1 {
+    from {transform: translate3d( 0, 0, 0px );}
+    50%, to {transform: translate3d( 0, 0, 1200px);}
+}
+@keyframes zoomin2 {
+    from {transform: translate3d( 0, 0, -1000px );}
+    50%   {transform: translate3d( 0, 0, 0px);}
+    to {transform: translate3d( 0, 0, 1200px );}
+}
+@keyframes zoomin3 {
+    from {transform: translate3d( 0, 0, -2000px );}
+    50% {transform: translate3d( 0, 0, -1000px );}
+    to   {transform: translate3d( 0, 0, 0px);}
 }
