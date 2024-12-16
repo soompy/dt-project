@@ -39,21 +39,39 @@
     }
 
     &.is_active {
-        .img_box {
-            img {
-                &.img1 {
-                    animation-delay: 0.5s;
-                    transform-origin: center center;
+        .obj_box {           
+            .obj {                
+                animation: pulsate 2s infinite ease-in-out;
+                &.obj0 {
+                    animation-delay: 0.25s;
+                    transform-origin: bottom right;
                 }
-                &.img2 {
-                    animation-delay: 1.5s;
-                    transform-origin: bottom top;
-                }                
+                &.obj1 {
+                    animation-delay: 0.5s;
+                    transform-origin: left;
+                }
+                &.obj2 {
+                    animation-delay: 0.75s;
+                    transform-origin: top right;
+                }
+                &.obj3 {
+                    animation-delay: 1s;
+                    transform-origin: top;
+                }
+                &.obj4 {
+                    animation-delay: 1.25s;
+                    transform-origin: bottom left;
+                }
             }
         }
     }
 }
 
+@keyframes pulsate {
+    0%,
+    100% {	transform: scale(1);}
+    50% {	transform: scale(1.3);}
+}
 
 .full_text_hero {
     display: flex;
