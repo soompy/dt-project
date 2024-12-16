@@ -94,43 +94,9 @@ const Home = () => {
     );
 
     const tl1 = useRef(null);
+    const tl2 = useRef(null);
 
     useEffect(() => {
-        const heroTitle = document.querySelectorAll(".hero_text");
-
-        heroTitle.forEach((element, index) => {
-            gsap.fromTo(
-                element,
-                { opacity: 0 },
-                {
-                    opacity: 1,
-                    duration: 0.7,
-                    stagger: 1.5,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "center center",
-                        end: "top 60%",
-                        toggleActions: "play none none reverse",
-                        pin: true,
-                        onUpdate: (self) => {
-                            if (self.isActive) {
-                                heroTitle.forEach((el, i) => {
-                                    if (i !== index) {
-                                        gsap.to(el, {
-                                            opacity: 0,
-                                            display: "none",
-                                            duration: 0.3,
-                                        });
-                                    }
-                                });
-                            }
-                        },
-                    },
-                }
-            );
-        });
-
         const visualMotion = () => {
             gsap.set(".obj1, obj2, obj3, obj4, obj5", {
                 delay: 0,
@@ -148,7 +114,35 @@ const Home = () => {
                 .to(".obj4", { delay: -0.3, opacity: 1, duration: 0.3 });
         };
 
+        const heroTitle = () => {
+            tl2.current = gsap
+                .timeline()
+                .to(".hero_text._1", { opacity: 1, y: 0, duration: 0.5 })
+                .to(".hero_text._1", { opacity: 1, duration: 1 })
+                .to(".hero_text._1", { opacity: 0, y: -50, duration: 0.1 })
+                .to(".hero_text._2", { opacity: 1, y: 0, duration: 0.5 })
+                .to(".hero_text._2", { opacity: 1, duration: 1 })
+                .to(".hero_text._2", { opacity: 0, y: -50, duration: 0.1 })
+                .to(".hero_text._3", { opacity: 1, y: 0, duration: 0.5 })
+                .to(".hero_text._3", { opacity: 1, duration: 1 })
+                .to(".hero_text._3", { opacity: 0, y: -50, duration: 0.1 })
+                .to(".hero_text._4", { opacity: 1, y: 0, duration: 0.5 })
+                .to(".hero_text._4", { opacity: 1, duration: 1 })
+                .to(".hero_text._4", { opacity: 0, y: -50, duration: 0.1 });
+
+            ScrollTrigger.create({
+                trigger: ".full_text_hero",
+                start: "top",
+                end: "bottom+=50%",
+                pin: true,
+                pinSpacing: true,
+                animation: tl2.current,
+                scrub: 0.5,
+            });
+        };
+
         visualMotion();
+        heroTitle();
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
