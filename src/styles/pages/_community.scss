@@ -1,0 +1,10 @@
+.chatDiv {
+    background: #ccc;
+    .message {
+        &.user {}
+        &.bot {}
+    }
+}
+.inputDiv {
+    background: #eee;
+}

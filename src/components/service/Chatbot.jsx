@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import InputArea from "../common/Input/Input";
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);
@@ -75,6 +76,13 @@ const Chatbot = () => {
                 ))}
             </div>
             <div className="inputDiv">
+                {/* <InputArea
+                    type="text"
+                    placeholder="메시지를 입력하세요"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                /> */}
                 <input
                     type="text"
                     placeholder="메시지를 입력하세요"
