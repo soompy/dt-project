@@ -20,7 +20,7 @@ const SliderCp = ({ bannerList, isReverse = false }) => {
             <Swiper
                 modules={[Pagination, Autoplay, Navigation, Scrollbar, A11y]}
                 spaceBetween={50}
-                slidesPerView={1}
+                slidesPerView={5}
                 onSlideChange={(e) => setActiveIdx(e.activeIdx)}
                 autoplay={{
                     delay: 800,
