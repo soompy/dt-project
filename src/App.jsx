@@ -10,6 +10,7 @@ import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
 import Notice from "./pages/Notice";
+import Footer from "./components/Footer";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -52,6 +53,7 @@ const App = () => {
                     <Route path="/community" element={<Community />} />
                     <Route path="/notice" element={<Notice />} />
                 </Routes>
+                <Footer />
             </section>
         </ConfigProvider>
     );
