@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Wrapper from "../components/Layouts/Wrapper";
 import Button from "../components/common/Button/Button";
-import Modal from "../components/Layouts/Modal";
-import FlexBox from "../components/Layouts/Flexbox";
-import ListCp from "../components/List/List";
 import CheckUi from "../components/common/Checkbox/CheckBox";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -21,45 +18,6 @@ import {
 import SliderCp from "../components/Layouts/Slider";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-const titles = [
-    {
-        text: "글1",
-        title: "제목1",
-        titleClass: "title-class-1",
-        itemClass: "item-class-1",
-        value: "key1",
-        imageSrc: "image1.jpg",
-        imageAlt: "Image 1",
-        title2: "Sub Title 1",
-        txt2: "Additional text for item 1",
-    },
-    {
-        text: "글2",
-        title: "제목2",
-        titleClass: "title-class-2",
-        itemClass: "item-class-2",
-        value: "key2",
-        imageSrc: "image2.jpg",
-        imageAlt: "Image 2",
-        txt2: "Additional text for item 2",
-    },
-    {
-        text: "글3",
-        title: "제목3",
-        titleClass: "title-class-2",
-        itemClass: "item-class-2",
-        value: "key2",
-        imageSrc: "image2.jpg",
-        imageAlt: "Image 3",
-        txt2: "Additional text for item 3",
-    },
-];
-
-const items = {
-    key1: "Item 1 Content",
-    key2: "Item 2 Content",
-};
 
 const radioOptions = [
     { value: "o1", label: "Custom A" },
@@ -96,8 +54,6 @@ const bannerList = [
 ];
 
 const Home = () => {
-    const [isModalVisible, setModalVisible] = useState(false);
-
     const container = useRef();
     const [isActiveMotion, setIsActiveMotion] = useState(false);
 
@@ -246,44 +202,10 @@ const Home = () => {
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
-                <FlexBox>1</FlexBox>
-                <FlexBox>2</FlexBox>
-            </Wrapper>
-
-            <Wrapper className="wrapper_1400">
+                {/* 설문조사 */}
                 <CheckUi options={radioOptions} type="radio" />
-
                 <CheckUi options={checkboxOptions} type="checkbox" />
             </Wrapper>
-
-            <Wrapper className="wrapper_1400">
-                <ListCp titles={titles} items={items}>
-                    {{
-                        "item.key1": <div>1번박스</div>,
-                        "item.key2": <div>2번박스</div>,
-                        "item.key3": <div>3번박스</div>,
-                    }}
-                </ListCp>
-
-                <Button size="md" theme="primary_1" label="test"></Button>
-
-                <>
-                    <Button
-                        onClick={() => setModalVisible(true)}
-                        size="md"
-                        theme="primary_1"
-                        label="showModal"
-                    ></Button>
-                    <Modal
-                        visible={isModalVisible}
-                        setVisible={setModalVisible}
-                        onClose={() => setModalVisible(false)}
-                        isCancelMode={false}
-                    />
-                </>
-            </Wrapper>
-
-            <Wrapper className="wrapper_1400"></Wrapper>
         </div>
     );
 };

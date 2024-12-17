@@ -115,16 +115,18 @@ section {padding: 0 !important;}
             
             &:nth-of-type(1) {
                 z-index: 5;
-                background: $secondary_2_3;
+                background: $secondary_1_3;
                 animation: zoomin1 5s linear 2s forwards alternate;            
             }
             &:nth-of-type(2) {
                 z-index: 3;                
+                background: $secondary_1_2;
                 transform: translate3d( 0, 0, -1000px );
                 animation: zoomin2 5s linear 2s forwards alternate ;
             }
             &:nth-of-type(3) {
                 z-index: 1;                
+                background: $secondary_1_1;
                 transform: translate3d( 0, 0, -2000px );
                 animation: zoomin3 5s linear 2s forwards alternate ;
             }

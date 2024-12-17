@@ -1,3 +1,5 @@
+import { Global } from "@emotion/react";
+import { globalStyles } from "./styles/globalStyles";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header/Header";
 import Home from "./pages/Hone";
@@ -30,6 +32,7 @@ const App = () => {
         // https://ant.design/docs/react/customize-theme
         // https://ant.design/docs/react/customize-theme
         <ConfigProvider theme={theme}>
+            <Global styles={globalStyles} />
             <section
                 style={{
                     background: theme.token.colorBgBase,
