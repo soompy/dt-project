@@ -131,8 +131,29 @@ const Home = () => {
             });
         };
 
+        const zoom3d = () => {
+            ScrollTrigger.create({
+                trigger: ".cont_3",
+                start: "top top",
+                end: "bottom+=50%",          
+                onEnter: () => {
+                    document.querySelector(".cont_3").classList.add("on");                    
+                },
+                onLeave: () => {
+                    document.querySelector(".cont_3").classList.remove("on");
+                },
+                onEnterBack: () => {
+                    document.querySelector(".cont_3").classList.add("on");
+                },
+                onLeaveBack: () => {
+                    document.querySelector(".cont_3").classList.remove("on");
+                },
+            });
+        }
+
         visualMotion();
         heroTitle();
+        zoom3d();
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
