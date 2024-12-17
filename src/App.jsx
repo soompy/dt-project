@@ -1,3 +1,5 @@
+import { Global } from "@emotion/react";
+import { globalStyles } from "./styles/globalStyles";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header/Header";
 import Home from "./pages/Hone";
@@ -8,6 +10,7 @@ import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
 import Notice from "./pages/Notice";
+import Footer from "./components/Footer";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -30,6 +33,7 @@ const App = () => {
         // https://ant.design/docs/react/customize-theme
         // https://ant.design/docs/react/customize-theme
         <ConfigProvider theme={theme}>
+            <Global styles={globalStyles} />
             <section
                 style={{
                     background: theme.token.colorBgBase,
@@ -49,6 +53,7 @@ const App = () => {
                     <Route path="/community" element={<Community />} />
                     <Route path="/notice" element={<Notice />} />
                 </Routes>
+                <Footer />
             </section>
         </ConfigProvider>
     );
