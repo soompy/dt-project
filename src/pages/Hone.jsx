@@ -140,6 +140,7 @@ const Home = () => {
                     <span className="obj obj4">
                         <img src={mandu04} alt="만두 또만나요" />
                     </span>
+                    ㅈ
                 </div>
             </section>
 
