@@ -1,0 +1,10 @@
+.slider-wrapper {
+    .swiper-wrapper {
+        display: flex;
+        transition-timing-function: linear !important;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

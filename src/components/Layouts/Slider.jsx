@@ -1,47 +1,45 @@
-import { useState } from "react";
-import {
-    Autoplay,
-    Navigation,
-    Pagination,
-    Scrollbar,
-    A11y,
-} from "swiper/modules";
+import { useRef, useEffect } from "react";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 const SliderCp = ({ bannerList, isReverse = false }) => {
-    const [activeIdx, setActiveIdx] = useState(0);
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        const swiperInstance = swiperRef.current?.swiper;
+        if (swiperInstance) {
+            swiperInstance.params.autoplay.reverseDirection = isReverse;
+            swiperInstance.autoplay.start();
+        }
+    }, [isReverse]);
 
     return (
-        <div>
+        <div className="slider-wrapper">
             <Swiper
-                modules={[Pagination, Autoplay, Navigation, Scrollbar, A11y]}
-                spaceBetween={50}
-                slidesPerView={5}
-                onSlideChange={(e) => setActiveIdx(e.activeIdx)}
+                modules={[Autoplay]}
+                ref={swiperRef}
+                slidesPerView="auto"
+                spaceBetween={0}
                 autoplay={{
-                    delay: 800,
-                    reverseDirection: isReverse,
+                    delay: 1,
                     disableOnInteraction: false,
                 }}
-                speed={500}
-                pagination={{
-                    clickable: true,
+                speed={3000}
+                loop={true}
+                allowTouchMove={false}
+                cssMode={false}
+                breakpoints={{
+                    320: { slidesPerView: 1 },
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 },
+                    1440: { slidesPerView: 4 },                    
                 }}
             >
-                {bannerList.map((banner) => (
-                    <SwiperSlide key={banner.id}>
+                {bannerList.map((banner, index) => (
+                    <SwiperSlide key={index} style={{ flex: "0 0 auto" }}>
                         <img src={banner.imgSrc} alt={banner.title} />
-                        <span
-                            className={`desc-box ${
-                                banner.id === activeIdx ? "active" : ""
-                            }`}
-                        >
-                            {banner.txt}
-                        </span>
+                        <span className="desc-box">{banner.txt}</span>
                     </SwiperSlide>
                 ))}
             </Swiper>
