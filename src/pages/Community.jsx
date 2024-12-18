@@ -50,6 +50,10 @@ const items = {
 const BotIcon = styled(MessageOutlined)`
     font-size: 30px;
     color: #007bff;
+
+    &:hover {
+        color: #fff;
+    }
 `;
 
 const boxData = [
@@ -71,7 +75,7 @@ const Community = () => {
         <div>
             <Wrapper className="wrapper_1400">
                 <div className="top community">
-                    <h2>text text</h2>
+                    <h2>community</h2>
                     <Button size="md" theme="primary_1" label="test"></Button>
                 </div>
             </Wrapper>
@@ -80,21 +84,26 @@ const Community = () => {
                 <FlexBox useRadio={false}>
                     {boxData.map((box) => (
                         <div key={box.id}>
-                            <h3>{box.title}</h3>
-                            <p>{box.content}</p>
+                            <span className="profile">
+                                <img src="" alt="작성자 프로필 이미지" />
+                            </span>
+                            <div className="cont_info">
+                                <h3>{box.title}</h3>
+                                <p>{box.content}</p>
+                            </div>
                         </div>
                     ))}
                 </FlexBox>
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
-                <ListCp titles={titles} items={items}>
+                {/* <ListCp titles={titles} items={items}>
                     {{
                         "item.key1": <div>1번박스</div>,
                         "item.key2": <div>2번박스</div>,
                         "item.key3": <div>3번박스</div>,
                     }}
-                </ListCp>
+                </ListCp> */}
 
                 <>
                     <Button
@@ -111,7 +120,7 @@ const Community = () => {
                     />
                 </>
             </Wrapper>
-            <button onClick={onClickChat}>
+            <button className="btn_chat" onClick={onClickChat}>
                 <BotIcon />
             </button>
             {isChatbot && <Chatbot />}
