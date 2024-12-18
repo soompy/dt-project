@@ -33,6 +33,10 @@ const Header = () => {
         });
     };
 
+    const onLinkClick = () => {
+        setIsVisible(false); // 링크 클릭 시 'on' 클래스 제거
+    };
+
     return (
         <div ref={headerRef}>
             <button className="btn_header" onClick={onClickHeader}>
@@ -45,27 +49,43 @@ const Header = () => {
                 <nav className="nav">
                     <ul>
                         <li>
-                            <Link data-text="Home" to="/">
+                            <Link data-text="Home" to="/" onClick={onLinkClick}>
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link data-text="Menu" to="/menu">
+                            <Link
+                                data-text="Menu"
+                                to="/menu"
+                                onClick={onLinkClick}
+                            >
                                 Menu
                             </Link>
                         </li>
                         <li>
-                            <Link data-text="Place" to="/place">
+                            <Link
+                                data-text="Place"
+                                to="/place"
+                                onClick={onLinkClick}
+                            >
                                 Place
                             </Link>
                         </li>
                         <li>
-                            <Link data-text="Community" to="/community">
+                            <Link
+                                data-text="Community"
+                                to="/community"
+                                onClick={onLinkClick}
+                            >
                                 Community
                             </Link>
                         </li>
                         <li>
-                            <Link data-text="Notice" to="/notice">
+                            <Link
+                                data-text="Notice"
+                                to="/notice"
+                                onClick={onLinkClick}
+                            >
                                 Notice
                             </Link>
                         </li>
