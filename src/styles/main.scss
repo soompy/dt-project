@@ -22,7 +22,7 @@ body {
 }
 
 
-$break-size: 720;
+$break-size: 768;
 
 @function vw($target) {
     @if type-of($target)==number {
