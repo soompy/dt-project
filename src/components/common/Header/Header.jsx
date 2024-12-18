@@ -1,48 +1,39 @@
 import { Link } from "react-router-dom";
+import Wrapper from "../../Layouts/Wrapper";
 
 const Header = () => {
+    const onClickHeader = () => {};
+
     return (
-        <header className="header">
-            <div className="logo">{/* <h1>로고</h1> */}</div>
+        <div>
+            <button onClick={onClickHeader}>D</button>
 
-            <nav className="nav">
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/menu">Menu</Link>
-                    </li>
-                    <li>
-                        <Link to="/place">Place</Link>
-                    </li>
-                    <li>
-                        <Link to="/community">Community</Link>
-                    </li>
-                    <li>
-                        <Link to="/notice">Notice</Link>
-                    </li>
-                </ul>
-            </nav>
-            {/* 
-            - 전체페이지 헤더 구상 
-            https://brunch.co.kr/@830bfa34e0894d6/25
-            
-              헤더에는
-              로고 브랜드 식별자
-              행동을 요구하는 버튼
-              텍스트 또는 제목
-              콘택트렌즈
-              sns링크
-              탐색 요소
-              검색 필드
-            */}
+            <section className="full_header">
+                <div className="logo">{/* <h1>로고</h1> */}</div>
 
-            <div className="search-bar">
-                <input type="text" placeholder="Search..." />
-                <button>Search</button>
-            </div>
-        </header>
+                <Wrapper>
+                    <nav className="nav">
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/menu">Menu</Link>
+                            </li>
+                            <li>
+                                <Link to="/place">Place</Link>
+                            </li>
+                            <li>
+                                <Link to="/community">Community</Link>
+                            </li>
+                            <li>
+                                <Link to="/notice">Notice</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </Wrapper>
+            </section>
+        </div>
     );
 };
 

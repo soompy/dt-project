@@ -2,6 +2,7 @@ import { Global } from "@emotion/react";
 import { globalStyles } from "./styles/globalStyles";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header/Header";
+import Footer from "./components/common/Footer/Footer";
 import Home from "./pages/Hone";
 import Menu from "./pages/Menu";
 import Place from "./pages/Place";
@@ -10,7 +11,6 @@ import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
 import Notice from "./pages/Notice";
-import Footer from "./components/Footer";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);

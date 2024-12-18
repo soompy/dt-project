@@ -2,6 +2,7 @@ import { useState } from "react";
 import Chatbot from "../components/service/Chatbot";
 import { MessageOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import Form from "antd/es/form/Form";
 
 const BotIcon = styled(MessageOutlined)`
     font-size: 30px;
@@ -17,6 +18,8 @@ const Community = () => {
 
     return (
         <div>
+            <Form></Form>
+
             <button onClick={onClickChat}>
                 <BotIcon />
             </button>

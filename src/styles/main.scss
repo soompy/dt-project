@@ -15,6 +15,37 @@
 @import './cp/slider';
 @import './cp/check';
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 body {
   font-family: Arial, sans-serif;
+}
+
+
+$break-size: 720;
+
+@function vw($target) {
+    @if type-of($target)==number {
+        @return (math.div(($target * 100), $break-size)) * 1vw;
+    }
+
+    @else if type-of($target)==list {
+        $vw: ();
+
+        @each $value in $target {
+            @if type-of($value)==number {
+                $vw: append($vw, (math.div(($value * 100), $break-size)) * 1vw);
+            }
+
+            @else if type-of($value)==string {
+                $vw: append($vw, $value);
+            }
+        }
+
+        @return $vw;
+    }
+
+    @else {
+        @return $target;
+    }
 }
