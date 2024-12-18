@@ -1,9 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
+
+.notice {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .notice_title_box {
+        font-size: 100px;
+        font-family: 'Black Han Sans', sans-serif;
+        margin-right: 130px;
+    }
+
+    .board_container {
+        flex: 1;
+    }
+}
+
+.notice_bg {
+    .card-container {
+        display: flex;
+        flex-direction: row;
+        gap: -40px;
+        justify-content: center;
+        width: 100%;
+
+        .card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 16px;
+            text-align: center;
+            width: 260px;
+            height: 320px;
+            border-radius: 45%;
+            transform: perspective(1000px) rotateY(-45deg) translateZ(150px);
+            z-index: 1;
+        }
+    }
+}
+
+
 .notice_write {
     position: relative;
     width: 100%;
+
     .title_box {
         display: flex;
         align-items: center;
+
         .title {
             margin-right: 16px;
         }
