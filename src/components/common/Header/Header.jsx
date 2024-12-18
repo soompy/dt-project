@@ -39,9 +39,11 @@ const Header = () => {
 
     return (
         <div ref={headerRef}>
-            <button className="btn_header" onClick={onClickHeader}>
-                D
-            </button>
+            <section className="btn_top_box">
+                <button className="btn_header" onClick={onClickHeader}>
+                    D
+                </button>
+            </section>
 
             <section className={`full_header ${isVisible ? "on" : ""}`}>
                 <div className="logo">{/* <h1>로고</h1> */}</div>

@@ -1,3 +1,15 @@
+.top {
+    &.community {
+        height: 50vh;
+        background: $secondary_1_1;
+        h2 {
+            font-size: 50px;
+            font-family: "Ubuntu", serif;
+            font-weight: bold;
+        }
+    }
+}
+
 .chatDiv {
     background: #ccc;
     .message {

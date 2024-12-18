@@ -19,7 +19,6 @@ const Desc = ({ text }) => (
 Desc.propTypes = {
     text: PropTypes.string,
 };
-
 const data = [
     {
         option: "Apple Vision Pro",
@@ -107,55 +106,7 @@ const Menu = () => {
                 </Flex>
             </Wrapper>
             <Wrapper className="wrapper_1400">
-                <div className="present_effect_box">
-                    <svg
-                        width="200"
-                        height="200"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <rect
-                            x="20"
-                            y="20"
-                            width="160"
-                            height="160"
-                            fill="#ff6347"
-                            stroke="#d32f2f"
-                            strokeWidth="4"
-                            rx="20"
-                            ry="20"
-                        />
-
-                        <path
-                            d="M20 70 L180 70 Q160 120 80 120 Q160 120 180 170"
-                            fill="none"
-                            stroke="#8b0000"
-                            strokeWidth="4"
-                        />
-
-                        <rect
-                            x="100"
-                            y="80"
-                            width="20"
-                            height="40"
-                            fill="#ff6347"
-                        />
-                        <rect
-                            x="90"
-                            y="100"
-                            width="40"
-                            height="20"
-                            fill="#ff6347"
-                        />
-
-                        <rect
-                            x="25"
-                            y="25"
-                            width="150"
-                            height="150"
-                            fill="rgba(0, 0, 0, 0.2)"
-                        />
-                    </svg>
-                </div>
+                <div className="present_effect_box"></div>
 
                 <div className="roulette">
                     <Wheel
