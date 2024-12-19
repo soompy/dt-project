@@ -18,22 +18,41 @@
 
 .notice_bg {
     .card-container {
-        display: flex;
-        flex-direction: row;
-        gap: -40px;
-        justify-content: center;
+        display: flex;        
+        gap: -10px;
+        justify-content: flex-start;
         width: 100%;
 
         .card {
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            padding: 16px;
-            text-align: center;
+            overflow: hidden;                        
             width: 260px;
             height: 320px;
-            border-radius: 45%;
-            transform: perspective(1000px) rotateY(-45deg) translateZ(150px);
-            z-index: 1;
+            border-radius: 5%;            
+            transform: rotate3d(3, -8, 0, 48deg);            
+            transition: transform 0.3s ease;            
+            background-image: url("https://cdn.gukjenews.com/news/photo/202404/2960746_3033403_4049.jpg");
+            background-position: center center;
+            background-size: contain;
+            
+            .glow {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                background-image: radial-gradient(circle at 50% 50%, #ffffff22, #0000000f);
+                transition: background-image 0.3s ease;
+            }
+
+            &:not(:first-child) {
+                margin-left: -140px;
+            }
+
+            &:hover {
+                box-shadow: 0 0 0 3px $secondary_1_2 inset;
+                z-index: 1;
+            }
         }
     }
 }
