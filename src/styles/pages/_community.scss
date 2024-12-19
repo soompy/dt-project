@@ -1,12 +1,25 @@
-.top {
-    &.community {
-        height: 50vh;
+.community {
+    .top {
+        display: flex;
+        align-items: center;        
         background: $secondary_1_1;
         text-transform: uppercase;
+        padding: 80px 60px;
         h2 {
             font-size: 50px;
             font-family: "Ubuntu", serif;
             font-weight: bold;
+        }
+
+        .left_box {
+            flex: 2;
+        }
+        .right_box {
+            flex: 1;
+            height: 100%;
+            img {
+                border-radius: 12%;
+            }
         }
     }
 }

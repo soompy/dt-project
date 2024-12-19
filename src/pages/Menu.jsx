@@ -73,7 +73,10 @@ const Menu = () => {
     };
 
     return (
-        <div>
+        <div className="menu">
+            <Wrapper className="wrapper_1400">
+              <h2 className="text_slogan">요즘 핫한 음식?</h2>
+            </Wrapper>
             {/* 스크롤 시 그라데이션으로 배경색이 바뀌도록 적용 */}
             {/* Splitter 레이아웃 */}
             <Splitter

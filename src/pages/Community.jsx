@@ -72,11 +72,19 @@ const Community = () => {
     };
 
     return (
-        <div>
+        <div className="community">
             <Wrapper className="wrapper_1400">
-                <div className="top community">
-                    <h2>community</h2>
-                    <Button size="md" theme="primary_1" label="test"></Button>
+              <h2 className="text_slogan">도란도란 디디디</h2>
+            </Wrapper>
+            <Wrapper className="wrapper_1400">
+                <div className="top">
+                    <div className="left_box">
+                        <h2>Discover your soul food</h2>
+                        <Button size="md" theme="primary_1" label="test"></Button>
+                    </div>
+                    <div className="right_box">
+                        <img src="https://image.8dogam.com/resized/product/asset/v1/upload/b6f743ddaa124a07af887627258c85fb.jpg?type=big&res=2x&ext=webp" alt="" />
+                    </div>
                 </div>
             </Wrapper>
 

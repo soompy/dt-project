@@ -1,33 +1,20 @@
 // 글쓰기 기능 만들기 https://jaypedia.tistory.com/150
 import { useState } from "react";
 import { Table, Button, Flex } from "antd";
-const columns = [
-    {
-        title: "Name",
-        dataIndex: "name",
-    },
-    {
-        title: "Age",
-        dataIndex: "age",
-    },
-    {
-        title: "Address",
-        dataIndex: "address",
-    },
-];
 
-const dataSource = Array.from({
-    length: 46,
-}).map((_, i) => ({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
-}));
 
-const BoardCp = () => {
+
+
+const BoardCp = ({ columns }) => {
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const dataSource = Array.from({ length: 46 }).map((_, i) => ({
+        key: i,
+        text: `게시글 제목`,
+        name: `이수민`,
+        day: `2024.12.19`,        
+    }));
 
     const start = () => {
         setLoading(true);
