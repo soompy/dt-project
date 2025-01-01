@@ -1,5 +1,49 @@
-.footer {
-    position: relative;
-    width: 100%;
-    padding: 60px 0;
+.footer {        
+    padding: 20px;
+    text-align: center;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    &__nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+
+        li a {            
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $secondary_2_2;
+            }
+        }
+    }
+
+    &__social a {
+        margin: 0 10px;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary_2_2;
+        }
+    }
+
+    &__bottom {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        border-top: 1px solid #444;
+        padding-top: 10px;
+    }
 }
