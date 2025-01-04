@@ -163,7 +163,9 @@ const Home = () => {
     return (
         <div ref={container}>
             <section className={`visual ${isActiveMotion ? "is_active" : ""}`}>
-                <div className="wrapper_1400"></div>
+                <div className="wrapper_1400">
+                    <h2>먹는 것과 즐거움이 만나는 곳</h2>
+                </div>
                 <div className="obj_box">
                     <span className="obj obj0">
                         <img src={mandu05} alt="만두" />

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
+import { MenuOutlined } from "@ant-design/icons";
+import { CloseOutlined } from "@ant-design/icons";
 
 const Header = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -41,7 +43,7 @@ const Header = () => {
         <div ref={headerRef}>
             <section className="btn_top_box">
                 <button className="btn_header" onClick={onClickHeader}>
-                    D
+                    {isVisible ? <CloseOutlined /> : <MenuOutlined />}
                 </button>
             </section>
 
