@@ -1,12 +1,19 @@
 .btn_header {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     right: 10vw;
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 10%;
     background: $secondary_1_3;
     color: $color_white;
+    transition: all 0.3s ease-in-out;
+    &.close {
+        border-radius: 50%;
+        background: $secondary_1_2;
+    }
 }
 
 .full_header {    
@@ -27,8 +34,8 @@
     &.on {
         visibility: visible;
         opacity: 1;
-        transform: translateY(0);
-    }
+        transform: translateY(0);     
+    }    
 }
 
 .logo {

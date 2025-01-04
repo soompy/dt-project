@@ -42,7 +42,7 @@ const Header = () => {
     return (
         <div ref={headerRef}>
             <section className="btn_top_box">
-                <button className="btn_header" onClick={onClickHeader}>
+                <button className={`btn_header ${isVisible ? "close" : ""}`} onClick={onClickHeader}>
                     {isVisible ? <CloseOutlined /> : <MenuOutlined />}
                 </button>
             </section>
