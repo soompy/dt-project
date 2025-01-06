@@ -47,16 +47,23 @@ const bestContents = [
     {
         id: 0,
         // imgSrc: 
-        title: "1",
+        title: "0",
         txt: "ㅇㅇ",
-        link: "/post/1",    
+        link: "/post/0",
     },
     {
         id: 1,
         // imgSrc: 
-        title: "2",
+        title: "1",
         txt: "ㅇㅇ2",
-        link: "/post/2",    
+        link: "/post/1",
+    },
+    {
+        id: 2,
+        // imgSrc: 
+        title: "2",
+        txt: "ㅇㅇ3",
+        link: "/post/2",
     }
 ]
 
@@ -94,6 +101,7 @@ const Community = () => {
             <Wrapper className="wrapper_1400">
               {/* <h2 className="text_slogan">도란도란 디디디</h2> */}
             </Wrapper>
+
             <Wrapper className="wrapper_1400">
                 <div className="top">
                     <div className="left_box">
@@ -107,10 +115,23 @@ const Community = () => {
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
+                {/* 인기게시물 - 최신/인기 질문 목록 소팅 기능 추가 & 답변 수 및 조회수 표시 */}
                 <section className="best_contents">
                     <SliderCp bannerList={bestContents} />
                 </section>
+            </Wrapper>
 
+            <Wrapper className="wrapper_1400">
+                {/* 안기유저 랭크 - 추천 사용자 프로필 노출(인기 회원 정보 게시물과 댓글 랭크 및 활동점수(글 작성수, 댓글 수, 좋아요 수 등 표시) */}
+                
+            </Wrapper>
+            
+            <Wrapper className="wrapper_1400">
+                {/* 이벤트 배너 */}                
+            </Wrapper>
+
+            <Wrapper className="wrapper_1400">
+                {/* 특정주제 토론방 */}
                 <FlexBox useRadio={false}>
                     {boxData.map((box) => (
                         <div key={box.id}>
@@ -127,13 +148,18 @@ const Community = () => {
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
-                {/* <ListCp titles={titles} items={items}>
+                {/* 챌린지 게시판 */}
+
+            </Wrapper>
+
+            <Wrapper className="wrapper_1400">
+                <ListCp titles={titles} items={items}>
                     {{
                         "item.key1": <div>1번박스</div>,
                         "item.key2": <div>2번박스</div>,
                         "item.key3": <div>3번박스</div>,
                     }}
-                </ListCp> */}
+                </ListCp>
 
                 <>
                     <Button
@@ -150,6 +176,12 @@ const Community = () => {
                     />
                 </>
             </Wrapper>
+
+            <Button 
+                size="sm"
+                theme="primary_1"
+                label="글쓰기"
+            />
 
             <button className="btn_chat" onClick={onClickChat}>
                 <BotIcon />

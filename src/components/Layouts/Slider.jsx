@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const SliderCp = ({ bannerList, isReverse = false }) => {
     const swiperRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const swiperInstance = swiperRef.current?.swiper;
