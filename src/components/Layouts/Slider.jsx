@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useNavigate } from "react-router-dom";
 
 const SliderCp = ({ bannerList, isReverse = false }) => {
     const swiperRef = useRef(null);
@@ -13,6 +14,11 @@ const SliderCp = ({ bannerList, isReverse = false }) => {
             swiperInstance.autoplay.start();
         }
     }, [isReverse]);
+
+
+    const handleClick = (link) => {
+        if (link) navigate(link); // 링크가 존재하면 해당 경로로 이동
+    };
 
     return (
         <div className="slider-wrapper">
@@ -37,7 +43,11 @@ const SliderCp = ({ bannerList, isReverse = false }) => {
                 }}
             >
                 {bannerList.map((banner, index) => (
-                    <SwiperSlide key={index} style={{ flex: "0 0 auto" }}>
+                    <SwiperSlide 
+                        key={index} 
+                        style={{ flex: "0 0 auto" }}
+                        onClick={() => handleClick(banner.link)}
+                    >
                         <img src={banner.imgSrc} alt={banner.title} />
                         <span className="desc-box">{banner.txt}</span>
                     </SwiperSlide>

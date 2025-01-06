@@ -7,6 +7,7 @@ import Modal from "../components/Layouts/Modal";
 import ListCp from "../components/List/List";
 import Button from "../components/common/Button/Button";
 import Wrapper from "../components/Layouts/Wrapper";
+import SliderCp from "../components/Layouts/Slider";
 
 const titles = [
     {
@@ -42,6 +43,23 @@ const titles = [
     },
 ];
 
+const bestContents = [
+    {
+        id: 0,
+        // imgSrc: 
+        title: "1",
+        txt: "ㅇㅇ",
+        link: "/post/1",    
+    },
+    {
+        id: 1,
+        // imgSrc: 
+        title: "2",
+        txt: "ㅇㅇ2",
+        link: "/post/2",    
+    }
+]
+
 const items = {
     key1: "Item 1 Content",
     key2: "Item 2 Content",
@@ -74,21 +92,25 @@ const Community = () => {
     return (
         <div className="community">
             <Wrapper className="wrapper_1400">
-              <h2 className="text_slogan">도란도란 디디디</h2>
+              {/* <h2 className="text_slogan">도란도란 디디디</h2> */}
             </Wrapper>
             <Wrapper className="wrapper_1400">
                 <div className="top">
                     <div className="left_box">
-                        <h2>Discover your soul food</h2>
+                        {/* <h2>Discover your soul food</h2> */}
                         <Button size="md" theme="primary_1" label="test"></Button>
                     </div>
                     <div className="right_box">
-                        <img src="https://image.8dogam.com/resized/product/asset/v1/upload/b6f743ddaa124a07af887627258c85fb.jpg?type=big&res=2x&ext=webp" alt="" />
+                        {/* <img src="https://image.8dogam.com/resized/product/asset/v1/upload/b6f743ddaa124a07af887627258c85fb.jpg?type=big&res=2x&ext=webp" alt="" /> */}
                     </div>
                 </div>
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
+                <section className="best_contents">
+                    <SliderCp bannerList={bestContents} />
+                </section>
+
                 <FlexBox useRadio={false}>
                     {boxData.map((box) => (
                         <div key={box.id}>
@@ -128,9 +150,11 @@ const Community = () => {
                     />
                 </>
             </Wrapper>
+
             <button className="btn_chat" onClick={onClickChat}>
                 <BotIcon />
             </button>
+            
             {isChatbot && <Chatbot />}
         </div>
     );
