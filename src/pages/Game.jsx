@@ -27,12 +27,14 @@ const Game = () => {
             percentage: 80,
         },
     ];
-    
-    <>
-        <RouletteGame data={rouletteData} />;
-        {/* 벽돌깨기
-        뱀꼬리잡기 등 */}
-    </>;
+
+    return (
+        <>
+            <RouletteGame data={rouletteData} />
+            {/* 벽돌깨기
+            뱀꼬리잡기 등 */}
+        </>
+    );
 };
 
 export default Game;

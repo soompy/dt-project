@@ -59,9 +59,15 @@ const RouletteGame = ({ data }) => {
     );
 };
 
-
 RouletteGame.propTypes = {
-    data: PropTypes.string,    
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            option: PropTypes.string.isRequired,
+            backgroundColor: PropTypes.string.isRequired,
+            textColor: PropTypes.string.isRequired,
+            percentage: PropTypes.number.isRequired,
+        })
+    ).isRequired,
 };
 
 export default RouletteGame;
