@@ -11,6 +11,9 @@ import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
 import Notice from "./pages/Notice";
+import LoginPage from "./components/Layouts/Login";
+import JoinForm from "./components/Layouts/Join";
+import Game from "./pages/Game";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -43,15 +46,16 @@ const App = () => {
                 }}
             >
                 <Header />
-                <Button 
+                <Button
                     type="primary"
-                    onClick={toggleTheme} 
+                    onClick={toggleTheme}
                     style={{
-                      position: "fixed",
-                      bottom: "20px",
-                      right: "20px",
-                      zIndex: 100,
-                    }}>
+                        position: "fixed",
+                        bottom: "20px",
+                        right: "20px",
+                        zIndex: 100,
+                    }}
+                >
                     다크모드
                 </Button>
                 <Routes>
@@ -60,6 +64,9 @@ const App = () => {
                     <Route path="/place" element={<Place />} />
                     <Route path="/community" element={<Community />} />
                     <Route path="/notice" element={<Notice />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/join" element={<JoinForm />} />
+                    <Route path="/game" element={<Game />} />
                 </Routes>
                 <Footer />
             </section>

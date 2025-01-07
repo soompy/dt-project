@@ -6,6 +6,11 @@
         height: 48px;
         border: 1px solid #d9d9d9;
         border-radius: 5px;
+        
+        &.input_error {
+            border-color: $color_error;
+            animation: shake 0.3s ease-in-out;
+        }
 
         input {
             width: 100%;
@@ -29,7 +34,19 @@
 
             &:focus {
                 outline: none;
-            }
+            }            
         }
     }
+    .input_alert_txt {
+        font-size: 12px;
+        margin-top: 8px;
+        color: $color_error;        
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-15px); }
+    50% { transform: translateX(15px); }
+    75% { transform: translateX(-15px); }
 }
