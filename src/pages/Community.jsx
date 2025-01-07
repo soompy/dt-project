@@ -97,7 +97,7 @@ const Community = () => {
     };
 
     return (
-        <div className="community">
+        <div className="community">     
             <Wrapper className="wrapper_1400">
               {/* <h2 className="text_slogan">도란도란 디디디</h2> */}
             </Wrapper>

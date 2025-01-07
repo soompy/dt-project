@@ -43,15 +43,16 @@ const App = () => {
                 }}
             >
                 <Header />
-                <Button 
+                <Button
                     type="primary"
-                    onClick={toggleTheme} 
+                    onClick={toggleTheme}
                     style={{
-                      position: "fixed",
-                      bottom: "20px",
-                      right: "20px",
-                      zIndex: 100,
-                    }}>
+                        position: "fixed",
+                        bottom: "20px",
+                        right: "20px",
+                        zIndex: 100,
+                    }}
+                >
                     다크모드
                 </Button>
                 <Routes>

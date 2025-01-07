@@ -1,22 +1,26 @@
 import PropTypes from "prop-types";
 
-const InputArea = ({ placeholderValue, type }) => {
+const InputArea = ({ labelTxt, placeholderValue, type }) => {
     return (
-        <div className="input_area">
-            <div className="input_field">
-                <input
-                    className="input_box"
-                    placeholder={placeholderValue}
-                    type={type}
-                />
+        <section className="login_page">
+            <div className="input_area">
+                <label htmlFor="">{labelTxt}</label>
+                <div className="input_field">
+                    <input
+                        className="input_box"
+                        placeholder={placeholderValue}
+                        type={type}
+                    />
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 
 InputArea.propTypes = {
     placeholderValue: PropTypes.string,
     type: PropTypes.string,
+    labelTxt: PropTypes.string.isRequired,
 };
 
 export default InputArea;
