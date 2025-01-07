@@ -108,6 +108,15 @@ const Header = () => {
                         </li>
                         <li>
                             <Link
+                                data-text="Game"
+                                to="/game"
+                                onClick={onLinkClick}
+                            >
+                                Game
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 data-text="Notice"
                                 to="/notice"
                                 onClick={onLinkClick}
