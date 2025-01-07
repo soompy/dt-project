@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { DatePicker } from "antd";
 import gsap from "gsap";
 import Wrapper from "../components/Layouts/Wrapper";
+import KakaoMap from "../components/Layouts/KakaoMap";
 
 const Place = () => {
   useEffect(() => {
@@ -11,11 +12,11 @@ const Place = () => {
     const timeline = gsap.timeline();
 
     timeline.from(cards, {
-        opacity: 0,        
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power3.out",
-      });
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.6,
+      ease: "power3.out",
+    });
 
     cards.forEach(($card) => {
       let bounds;
@@ -71,31 +72,34 @@ const Place = () => {
     <div className="place">
       <Wrapper className="wrapper_1400">
         <h2 className="text_slogan">어디서 놀까?</h2>
-      
+
         <div className="place_cards">
-            <div className="card-container">
+          <div className="card-container">
             <div className="card">
-                Card 1<span className="glow"></span>
-            </div>
-            <div className="card">
-                Card 2<span className="glow"></span>
+              Card 1<span className="glow"></span>
             </div>
             <div className="card">
-                Card 3<span className="glow"></span>
+              Card 2<span className="glow"></span>
             </div>
             <div className="card">
-                Card 3<span className="glow"></span>
+              Card 3<span className="glow"></span>
             </div>
             <div className="card">
-                Card 3<span className="glow"></span>
+              Card 3<span className="glow"></span>
             </div>
+            <div className="card">
+              Card 3<span className="glow"></span>
             </div>
+          </div>
         </div>
       </Wrapper>
 
+      <KakaoMap />
+      
       <Wrapper className="wrapper_1400">
         {/* 지도 영역 */}
         {/* 팝업스토어 맛집 놀이공간 파티룸 콘텐츠 체험 전시회 이벤트 등등 */}
+        
       </Wrapper>
 
       <Wrapper className="wrapper_1400">
