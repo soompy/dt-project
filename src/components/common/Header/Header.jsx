@@ -37,7 +37,7 @@ const Header = () => {
     };
 
     const onLinkClick = () => {
-        setIsVisible(false); // 링크 클릭 시 'on' 클래스 제거
+        setIsVisible(false);
     };
 
     return (

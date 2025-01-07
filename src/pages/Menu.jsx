@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Wrapper from "../components/Layouts/Wrapper";
 import { Flex, Splitter, Typography } from "antd";
 import { Wheel } from "react-custom-roulette";
+import Counter from "../components/Layouts/Counter";
 
 const Desc = ({ text }) => (
     <Flex justify="center" align="center" style={{ height: "100%" }}>
@@ -75,7 +76,8 @@ const Menu = () => {
     return (
         <div className="menu">
             <Wrapper className="wrapper_1400">
-              <h2 className="text_slogan">요즘 핫한 음식?</h2>
+                <h2 className="text_slogan">요즘 핫한 음식?</h2> <br />
+                <Counter />가지 여기에
             </Wrapper>
             {/* 스크롤 시 그라데이션으로 배경색이 바뀌도록 적용 */}
             {/* Splitter 레이아웃 */}
