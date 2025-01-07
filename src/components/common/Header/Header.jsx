@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { MenuOutlined } from "@ant-design/icons";
 import { CloseOutlined } from "@ant-design/icons";
+import { Space } from "antd";
 
 const Header = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -48,7 +49,28 @@ const Header = () => {
             </section>
 
             <section className={`full_header ${isVisible ? "on" : ""}`}>
-                <div className="logo">{/* <h1>로고</h1> */}</div>
+                <div className="header_top_area">
+                    {/* <h1>로고</h1> */}
+                    <div className="mypage_box">
+                        <Space size={[20, 0]}>
+                            <Link
+                                data-text="Login"
+                                to="/login"
+                                onClick={onLinkClick}
+                            >
+                                로그인
+                            </Link>
+
+                            <Link
+                                data-text="Join"
+                                to="/join"
+                                onClick={onLinkClick}
+                            >
+                                회원가입
+                            </Link>
+                        </Space>                        
+                    </div>
+                </div>                
 
                 <nav className="nav">
                     <ul>
@@ -94,7 +116,7 @@ const Header = () => {
                             </Link>
                         </li>
                     </ul>
-                </nav>
+                </nav>                
 
                 <div className="full_bg">
                     {[...Array(4)].map((_, index) => (

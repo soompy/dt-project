@@ -11,6 +11,8 @@ import { ConfigProvider, Button } from "antd";
 import antdTheme from "./styles/theme";
 import { useState } from "react";
 import Notice from "./pages/Notice";
+import LoginPage from "./components/Layouts/Login";
+import JoinForm from "./components/Layouts/Join";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -61,6 +63,8 @@ const App = () => {
                     <Route path="/place" element={<Place />} />
                     <Route path="/community" element={<Community />} />
                     <Route path="/notice" element={<Notice />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/join" element={<JoinForm />} />
                 </Routes>
                 <Footer />
             </section>

@@ -37,6 +37,11 @@
             }            
         }
     }
+    .input_alert_txt {
+        font-size: 12px;
+        margin-top: 8px;
+        color: $color_error;        
+    }
 }
 
 @keyframes shake {

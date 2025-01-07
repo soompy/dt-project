@@ -1,10 +1,7 @@
 .login_page {
     position: relative;
+    @include flexCenter;
+    flex-direction: column;    
     width: 100%;    
-    form {
-        width: 100%;        
-        @include flexCenter;
-        flex-direction: column;
-    }
-    
+    min-height: 100vh;
 }
