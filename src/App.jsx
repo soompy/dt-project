@@ -24,7 +24,7 @@ const App = () => {
                   colorPrimary: "#3c89e8",
                   colorSecondary: "#d89614",
                   colorBgBase: "#1a1a1a",
-                  colorTextBase: "#fff",
+                  colorTextBase: "#fff",                  
               },
           }
         : antdTheme;

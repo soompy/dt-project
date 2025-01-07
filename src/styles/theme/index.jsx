@@ -9,6 +9,7 @@ const antdTheme = {
         colorSecondary: variables.secondary_1_3,
         colorBgBase: variables.color_white,
         colorTextBase: variables.color_black,
+        colorBgLight: variables.secondary_1_1,          
     },
     components: {
         // component token
