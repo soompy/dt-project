@@ -14,3 +14,25 @@
         }
     }
 }
+
+
+.switch_box {
+    width: 80px;
+    height: 44px;
+    background: linear-gradient(250deg, #7b2ff7, #f107a3);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    &[data-isOn="true"] {
+        justify-content: flex-end;
+    }
+
+    .handle {
+        width: 24px;
+        height: 24px;
+        background-color: rgba(255,255,255,0.6);
+        border-radius: 10px;
+    }
+}

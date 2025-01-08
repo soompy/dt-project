@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Switch = () => {
+const SwitchCp = () => {
     const [isOn, setIsOn] = useState(false);
 
     const toggleSwitch = () => setIsOn(!isOn);
 
     return (
-        <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
+        <div className="switch_box" data-ison={isOn} onClick={toggleSwitch}>
             <motion.div className="handle" layout transition={spring} />
         </div>
     );
@@ -19,4 +19,4 @@ const spring = {
     damping: 30,
 };
 
-export default Switch;
+export default SwitchCp;

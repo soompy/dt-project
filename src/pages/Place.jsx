@@ -8,6 +8,8 @@ import gsap from "gsap";
 import Wrapper from "../components/Layouts/Wrapper";
 import KakaoMap from "../components/Layouts/KakaoMap";
 import { remove } from "../utils/array-utils";
+import SwitchCp from "../components/common/Switch/Switch";
+
 
 const Place = () => {
     const [notifications, setNotifications] = useState([0]);
@@ -108,6 +110,7 @@ const Place = () => {
 
             <Wrapper className="wrapper_1400">
                 <DatePicker />
+                <SwitchCp />
             </Wrapper>
 
             <ul className="place_alert_box">
