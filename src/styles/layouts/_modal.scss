@@ -211,3 +211,17 @@
     width: 50px;
     height: 50px;        
 }
+
+.place_alert_box {
+    li {
+        width: 300px;
+        height: 100px;
+        padding: 16px 20px;
+        box-shadow: $boxShadow;
+        border-radius: 20px;
+    }
+    button {
+        display: flex;
+        margin-left: auto;
+    }
+}

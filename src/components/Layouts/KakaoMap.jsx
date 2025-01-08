@@ -5,26 +5,35 @@ const KakaoMap = ({ latitude = 37.5665, longitude = 126.978, level = 3 }) => {
     const mapContainer = useRef(null);
 
     useEffect(() => {
-        if (window.kakao && window.kakao.maps) {
-            const kakao = window.kakao;
+        const initMap = () => {
+            if (window.kakao && window.kakao.maps) {
+                const kakao = window.kakao;
 
-            const map = new kakao.maps.Map(mapContainer.current, {
-                center: new kakao.maps.LatLng(latitude, longitude),
-                level: level,
-            });
+                const map = new kakao.maps.Map(mapContainer.current, {
+                    center: new kakao.maps.LatLng(latitude, longitude),
+                    level: level,
+                });
 
-            new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(latitude, longitude),
-                map: map,
-            });
+                new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(latitude, longitude),
+                    map: map,
+                });
+            }
+        };
+
+        if (!window.kakao) {
+            const script = document.createElement("script");
+            script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=a2f96ed7000fd406a5669d909855c6ed";
+            script.async = true;
+            script.onload = initMap;
+            document.head.appendChild(script);
+        } else {
+            initMap();
         }
     }, [latitude, longitude, level]);
 
     return (
-        <div
-            ref={mapContainer}
-            style={{ width: "100%", height: "400px" }}
-        ></div>
+        <div id="map" ref={mapContainer} style={{ width: "100%", height: "400px" }}></div>
     );
 };
 
