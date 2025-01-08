@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { animate } from "framer-motion";
 
@@ -23,5 +24,10 @@ const styles = {
         color: "#4ff0b7",
     },
 };
+
+Counter.propTypes = {
+    targetValue: PropTypes.number,
+    targetDuration: PropTypes.number,
+}
 
 export default Counter;

@@ -71,9 +71,9 @@ const Place = () => {
     // 인터렉션 참고 https://gsap.com/community/forums/topic/28175-how-to-use-scrolltrigger-change-texts/
     <div className="place">
       <Wrapper className="wrapper_1400">
-        <h2 className="text_slogan">어디서 놀까?</h2>
+        {/* <h2 className="text_slogan">어디서 놀까?</h2> */}
 
-        <div className="place_cards">
+        {/* <div className="place_cards">
           <div className="card-container">
             <div className="card">
               Card 1<span className="glow"></span>
@@ -91,15 +91,14 @@ const Place = () => {
               Card 3<span className="glow"></span>
             </div>
           </div>
-        </div>
+        </div> */}
       </Wrapper>
 
-      <KakaoMap />
+      <KakaoMap latitude={37.5665} longitude={126.9780} level={3} />
       
       <Wrapper className="wrapper_1400">
         {/* 지도 영역 */}
-        {/* 팝업스토어 맛집 놀이공간 파티룸 콘텐츠 체험 전시회 이벤트 등등 */}
-        
+        {/* 팝업스토어 맛집 놀이공간 파티룸 콘텐츠 체험 전시회 이벤트 등등 */}        
       </Wrapper>
 
       <Wrapper className="wrapper_1400">

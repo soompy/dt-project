@@ -24,7 +24,7 @@ const Menu = () => {
         <div className="menu">
             <Wrapper className="wrapper_1400">
                 {/* <h2 className="text_slogan">요즘 핫한 음식</h2> */}
-                <p className="text_slogan"><Counter targetValue={200} targetDuration={1} />가지</p>
+                <p className="text_slogan"><Counter targetValue={200} targetDuration={1} /> </p>
             </Wrapper>
             {/* 스크롤 시 그라데이션으로 배경색이 바뀌도록 적용 */}
             {/* Splitter 레이아웃 */}
