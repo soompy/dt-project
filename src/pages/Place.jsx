@@ -9,7 +9,6 @@ import Wrapper from "../components/Layouts/Wrapper";
 import KakaoMap from "../components/Layouts/KakaoMap";
 import { remove } from "../utils/array-utils";
 import SwitchCp from "../components/common/Switch/Switch";
-import AnimatedCheckbox from "../components/common/Checkbox/AnimatedCheck";
 
 const Place = () => {
     const [notifications, setNotifications] = useState([0]);
@@ -74,6 +73,15 @@ const Place = () => {
         });
     }, []);
 
+    const variants = {
+        first: {
+            opacity: 0,
+        },
+        animationEnd: {
+            opacity: 1,
+        },
+    };
+
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 300], { clamp: false });
 
@@ -83,10 +91,18 @@ const Place = () => {
             <section className="visual">
                 <Wrapper className="wrapper_1400">
                     <div className="spin_obj">
-                        <motion.div style={{ rotate }}></motion.div>
+                        <motion.div
+                            style={{ rotate }}
+                            variants={variants}
+                            initial="first"
+                            animate="animationEnd"
+                            transition={{
+                                ease: "easeInOut",
+                                duration: 1.2
+                            }}
+                        />
                     </div>
                 </Wrapper>
-                <AnimatedCheckbox></AnimatedCheckbox>
             </section>
 
             <Wrapper className="wrapper_1400">
