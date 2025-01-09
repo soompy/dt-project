@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import { DatePicker } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useTime, useTransform } from "framer-motion";
 import gsap from "gsap";
 import Wrapper from "../components/Layouts/Wrapper";
 import KakaoMap from "../components/Layouts/KakaoMap";
 import { remove } from "../utils/array-utils";
 import SwitchCp from "../components/common/Switch/Switch";
-
 
 const Place = () => {
     const [notifications, setNotifications] = useState([0]);
@@ -74,9 +73,20 @@ const Place = () => {
         });
     }, []);
 
+    const time = useTime();
+    const rotate = useTransform(time, [0, 4000], [0, 300], { clamp: false });
+
     return (
         // 인터렉션 참고 https://gsap.com/community/forums/topic/28175-how-to-use-scrolltrigger-change-texts/
         <div className="place">
+            <section className="visual">
+                <Wrapper className="wrapper_1400">
+                    <div className="spin_obj">
+                        <motion.div style={{ rotate }}></motion.div>
+                    </div>
+                </Wrapper>
+            </section>
+
             <Wrapper className="wrapper_1400">
                 {/* <h2 className="text_slogan">어디서 놀까?</h2> */}
 
@@ -127,9 +137,13 @@ const Place = () => {
                                 transition: { duration: 0.2 },
                             }}
                         >
-                            <button onClick={() => setNotifications(remove(notifications, id)) }>
-                              <CloseOutlined />
-                            </button>                            
+                            <button
+                                onClick={() =>
+                                    setNotifications(remove(notifications, id))
+                                }
+                            >
+                                <CloseOutlined />
+                            </button>
                         </motion.li>
                     ))}
                 </AnimatePresence>

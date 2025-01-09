@@ -237,41 +237,42 @@ const Home = () => {
                         <img src={mandu05} alt="만두" />
                     </span>
                 </div>
+
+                <motion.div
+                    animate={{ "--base-hue": 360 }}
+                    initial={{ "--base-hue": 0 }}
+                    transition={{ duration: 10, loop: Infinity, ease: "linear" }}
+                    style={{ width: "100%", height: "100%" }}
+                >
+                    <motion.div
+                        style={{
+                            display: "flex",
+                            width: (size + gap) * 4 - gap,
+                            height: (size + gap) * 4 - gap,
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            position: "relative",
+                            perspective: 500
+                        }}
+                    >
+                    {grid.map((row, rowIndex) =>
+                        row.map((_item, colIndex) => (
+                        <Square
+                            x={x}
+                            y={y}
+                            active={active}
+                            setActive={setActive}
+                            rowIndex={rowIndex}
+                            colIndex={colIndex}
+                            key={rowIndex + colIndex}
+                        />
+                        ))
+                    )}
+                    </motion.div>
+                </motion.div>
             </section>
 
-            <motion.div
-                animate={{ "--base-hue": 360 }}
-                initial={{ "--base-hue": 0 }}
-                transition={{ duration: 10, loop: Infinity, ease: "linear" }}
-                style={{ width: "100%", height: "100%" }}
-            >
-                <motion.div
-                    style={{
-                        display: "flex",
-                        width: (size + gap) * 4 - gap,
-                        height: (size + gap) * 4 - gap,
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        position: "relative",
-                        perspective: 500
-                    }}
-                >
-                {grid.map((row, rowIndex) =>
-                    row.map((_item, colIndex) => (
-                    <Square
-                        x={x}
-                        y={y}
-                        active={active}
-                        setActive={setActive}
-                        rowIndex={rowIndex}
-                        colIndex={colIndex}
-                        key={rowIndex + colIndex}
-                    />
-                    ))
-                )}
-                </motion.div>
-            </motion.div>
 
             <section className="cont_1">
                 <div className="full_text_hero">
