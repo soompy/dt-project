@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Wrapper from "../components/Layouts/Wrapper";
 import Button from "../components/common/Button/Button";
-import CheckUi from "../components/common/Checkbox/CheckBox";
+import CheckUi from "../components/common/Checkbox/CheckUi";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import PropTypes from "prop-types";

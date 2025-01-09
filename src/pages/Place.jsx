@@ -9,6 +9,7 @@ import Wrapper from "../components/Layouts/Wrapper";
 import KakaoMap from "../components/Layouts/KakaoMap";
 import { remove } from "../utils/array-utils";
 import SwitchCp from "../components/common/Switch/Switch";
+import AnimatedCheckbox from "../components/common/Checkbox/AnimatedCheck";
 
 const Place = () => {
     const [notifications, setNotifications] = useState([0]);
@@ -85,6 +86,7 @@ const Place = () => {
                         <motion.div style={{ rotate }}></motion.div>
                     </div>
                 </Wrapper>
+                <AnimatedCheckbox></AnimatedCheckbox>
             </section>
 
             <Wrapper className="wrapper_1400">
