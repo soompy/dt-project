@@ -91,7 +91,7 @@ const Place = () => {
             <section className="visual">
                 <Wrapper className="wrapper_1400">
                     <div className="spin_obj">
-                        <motion.div
+                        <motion.span
                             style={{ rotate }}
                             variants={variants}
                             initial="first"

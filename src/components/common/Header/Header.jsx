@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
-import { MenuOutlined } from "@ant-design/icons";
-import { CloseOutlined } from "@ant-design/icons";
+// import { MenuOutlined } from "@ant-design/icons";
+// import { CloseOutlined } from "@ant-design/icons";
 import { Space } from "antd";
+import NavIcon from "./NavIcon";
 
 const Header = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -44,9 +45,15 @@ const Header = () => {
         <div ref={headerRef}>
             <section className="btn_top_box">
                 <button className={`btn_header ${isVisible ? "close" : ""}`} onClick={onClickHeader}>
-                    {isVisible ? <CloseOutlined /> : <MenuOutlined />}
+                    {/* {isVisible ? <CloseOutlined /> : <MenuOutlined />} */}                    
+                    <NavIcon isVisible={isVisible} onClick={onClickHeader} />
+                    {/* svg render 
+                        https://codepen.io/du5rte/pen/EyRVZJ?editors=1010
+                    */}
                 </button>
             </section>
+
+            <div id="render"></div>
 
             <section className={`full_header ${isVisible ? "on" : ""}`}>
                 <div className="header_top_area">
