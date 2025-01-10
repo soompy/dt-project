@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
-// import { MenuOutlined } from "@ant-design/icons";
-// import { CloseOutlined } from "@ant-design/icons";
 import { Space } from "antd";
 import NavIcon from "./NavIcon";
 
@@ -44,12 +42,8 @@ const Header = () => {
     return (
         <div ref={headerRef}>
             <section className="btn_top_box">
-                <button className={`btn_header ${isVisible ? "close" : ""}`} onClick={onClickHeader}>
-                    {/* {isVisible ? <CloseOutlined /> : <MenuOutlined />} */}                    
+                <button className={`btn_header ${isVisible ? "close" : ""}`} onClick={onClickHeader}>                    
                     <NavIcon isVisible={isVisible} onClick={onClickHeader} />
-                    {/* svg render 
-                        https://codepen.io/du5rte/pen/EyRVZJ?editors=1010
-                    */}
                 </button>
             </section>
 
