@@ -3,3 +3,32 @@
     align-items: center;
     justify-content: center;
 }
+
+// profile
+.profile_box {
+    position: relative;
+    @include flexCenter();
+    justify-content: space-between;
+    width: 100%;
+    .photo {
+        overflow: hidden;
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+
+    .user_info {
+        @include flexCenter();
+        .user_name {
+            font-size: 13px;
+        }
+        .user_grade {
+            font-size: 12px;
+            padding: 8px;
+            border-radius: 5px;
+            margin-left: 8px;
+            background: $secondary_2_1;
+        }
+    }
+}
