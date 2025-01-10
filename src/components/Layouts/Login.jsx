@@ -1,11 +1,55 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import InputArea from "../common/Input/Input";
 import Button from "../common/Button/Button";
 import { Space } from "antd";
+import ModalPopup from "./Modal";
 
 const LoginPage = () => {
+    const [formValues, setFormValues] = useState({
+        email: "",
+        password: "",        
+    })
+    
+    const [errors, setErrors] = useState({
+        email: "",
+        password: "",        
+    })
+
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const handleInputChange = (field, value) => {
+        setFormValues({...formValues, [field]: value});
+
+        if(field === "email") {
+            const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            setErrors({
+                ...errors,
+                email: isValidEmail ? "" : "메일 형식으로 작성해주세요.",
+            })
+        } else if (field === "password") {
+            setErrors({
+                ...errors,
+                password: value.length >= 6 ? "" : "비밀번호는 최소 6자 이상이어야 합니다."
+            })
+        }
+    }    
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!formValues.email || !formValues.password) {
+            alert("모든 필드를 입력해주세요.");
+            return;
+        }
+
+        if (!errors.email && !errors.password) {
+            setIsModalVisible(true);
+        }
+    }
+
     return (
-        <div className="login_page">
+        <div className="login_page" >
             <div className="background">{/* 배경 애니메이션 추가 */}</div>
             
             <motion.div                
@@ -16,25 +60,40 @@ const LoginPage = () => {
                 <h1>로그인</h1>
             </motion.div>
             
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Space size={[20, 0]}>
                     <InputArea
                         labelTxt="이메일"
                         type="email"
-                        placeholder="이메일을 입력하세요."
-                        alertTxt=""
+                        placeholdeValuer="이메일을 입력하세요."
+                        value={formValues.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        alertTxt={errors.email}
                     />
                 
                     <InputArea
                         labelTxt="비밀번호"
                         type="password"
-                        placeholder="비밀번호를 입력하세요."
-                        alertTxt=""
+                        placeholdeValuer="비밀번호를 입력하세요."
+                        value={formValues.password}
+                        onChange={(e) => handleInputChange("password", e.target.value)}
+                        alertTxt={errors.password}
                     />
                 </Space>
 
-                <Button />
-            </form>            
+                <Button
+                    size="sm"
+                    theme="primary_2"
+                    label="Sign in"
+                />
+            </form>    
+
+            <ModalPopup
+                visible={isModalVisible}
+                setVisible={setIsModalVisible}
+                themeClass="primary_2"
+                onClose={() => setIsModalVisible(false)}
+            />
         </div>
     );
 };

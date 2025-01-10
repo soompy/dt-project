@@ -1,4 +1,5 @@
 // import { motion } from "framer-motion";
+import Button from "../common/Button/Button";
 import InputArea from "../common/Input/Input";
 // import Button from "../common/Button/Button";
 // import { Space } from "antd";
@@ -78,9 +79,14 @@ const JoinForm = () => {
                 }
                 alertTxt={errors.confirmPassword}
             />
-            <button type="submit" disabled={!Object.values(errors).every((e) => e === "")}>
-                회원가입
-            </button>
+
+            <Button
+                size="sm"
+                theme="primary_2"
+                type="submit"
+                label="회원가입"
+                disabled={!Object.values(errors).every((e) => e === "")}
+            />
         </form>
     )
 }
