@@ -25,10 +25,16 @@
         }
         .user_grade {
             font-size: 12px;
-            padding: 8px;
+            padding: 4px 6px;
             border-radius: 5px;
             margin-left: 8px;
             background: $secondary_2_1;
         }
     }
+}
+
+.banner_container {
+    position: relative;
+    display: block;
+    width: 100%;
 }
