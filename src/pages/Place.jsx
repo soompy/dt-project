@@ -9,6 +9,7 @@ import Wrapper from "../components/Layouts/Wrapper";
 import KakaoMap from "../components/Layouts/KakaoMap";
 import { remove } from "../utils/array-utils";
 import SwitchCp from "../components/common/Switch/Switch";
+// import AnimateList from "../components/List/AnimateList";
 
 const Place = () => {
     const [notifications, setNotifications] = useState([0]);
@@ -85,8 +86,7 @@ const Place = () => {
     const time = useTime();
     const rotate = useTransform(time, [0, 4000], [0, 300], { clamp: false });
 
-    return (
-        // 인터렉션 참고 https://gsap.com/community/forums/topic/28175-how-to-use-scrolltrigger-change-texts/
+    return (        
         <div className="place">
             <section className="visual">
                 <Wrapper className="wrapper_1400">
@@ -106,6 +106,9 @@ const Place = () => {
             </section>
 
             <Wrapper className="wrapper_1400">
+                {/* 토스 인터렉션 관련글 참고(클릭시 이미지 확대) https://toss.tech/article/interaction */}
+                {/* <AnimateList /> */}
+
                 {/* <h2 className="text_slogan">어디서 놀까?</h2> */}
 
                 {/* <div className="place_cards">

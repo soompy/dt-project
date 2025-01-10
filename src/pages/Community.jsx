@@ -9,6 +9,7 @@ import Button from "../components/common/Button/Button";
 import Wrapper from "../components/Layouts/Wrapper";
 import SliderCp from "../components/Layouts/Slider";
 import ProfileArea from "../components/Layouts/Profile";
+import Banner from "../components/Layouts/Banner";
 
 const titles = [
     {
@@ -127,7 +128,11 @@ const Community = () => {
             </Wrapper>
             
             <Wrapper className="wrapper_1400">
-                {/* 이벤트 배너 */}                           
+                {/* 이벤트 배너 */}  
+                <Banner 
+                    bannerUrl=""
+                    bannerAlt="소통이벤트"
+                />
             </Wrapper>
 
             <Wrapper className="wrapper_1400">
