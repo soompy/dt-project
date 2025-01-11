@@ -1,7 +1,10 @@
-// .inner {
-//     padding: ;
-// }
-
-.sp {
-    background: #eee;
+.menu {
+    .main_txt {
+        text-align: center;
+        margin: 80px 0;
+        .text_gradient {
+            font-size: 70px;
+            line-height: 70px;
+        }
+    }
 }

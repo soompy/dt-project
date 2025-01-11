@@ -13,8 +13,21 @@ import SwitchCp from "../components/common/Switch/Switch";
 
 const Place = () => {
     const [notifications, setNotifications] = useState([0]);
+    const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {
+        const spinObj = document.querySelector('.spin_obj');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                setIsInView(entry.isIntersecting);
+            });            
+        }, { threshold: 0.5 });
+
+        if (spinObj) {
+            observer.observe(spinObj);
+        }      
+
         const cards = document.querySelectorAll(".card");
         const timeline = gsap.timeline();
 
@@ -72,6 +85,12 @@ const Place = () => {
                 $card.querySelector(".glow").style.backgroundImage = "";
             });
         });
+
+        return () => {
+            if (spinObj) {
+                observer.unobserve(spinObj);
+            }
+        };
     }, []);
 
     const variants = {
@@ -90,15 +109,16 @@ const Place = () => {
         <div className="place">
             <section className="visual">
                 <Wrapper className="wrapper_1400">
+                    <h2>어디서 무엇을</h2>
                     <div className="spin_obj">
                         <motion.span
-                            style={{ rotate }}
+                            style={{ rotate: isInView ? rotate : 0 }}
                             variants={variants}
                             initial="first"
-                            animate="animationEnd"
+                            animate={isInView ? "animationEnd" : "first"}
                             transition={{
-                                ease: "easeInOut",
-                                duration: 1.2
+                                opacity: { ease: "easeInOut", duration: 1.2 },
+                                rotate: { ease: "easeInOut", duration: 1.2 },
                             }}
                         />
                     </div>

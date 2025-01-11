@@ -22,9 +22,13 @@ Desc.propTypes = {
 const Menu = () => {
     return (
         <div className="menu">
-            <Wrapper className="wrapper_1400">
-                {/* <h2 className="text_slogan">요즘 핫한 음식</h2> */}
-                <p className="text_slogan"><Counter targetValue={200} targetDuration={1} /> </p>
+            <Wrapper className="wrapper_1400 main_txt">
+                <h2 className="text_slogan">요즘 핫한 음식</h2>
+                <p className="text_slogan">
+                    <p className="text_gradient">
+                        <Counter targetValue={200} targetDuration={1} />                        
+                    </p>
+                </p>
             </Wrapper>
             {/* 스크롤 시 그라데이션으로 배경색이 바뀌도록 적용 */}
             {/* Splitter 레이아웃 */}

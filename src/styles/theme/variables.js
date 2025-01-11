@@ -1,7 +1,7 @@
 // variables.js
 export const variables = {
-    primary_1: "blue",
-    primary_2: "#f5f5dc",
+    primary_1: "#00d4ff",
+    primary_2: "#ecf602",
     color_black: "#1a1a1a",
     color_white: "#fff",
     secondary_1_1: "#f8f8f8",

@@ -160,7 +160,7 @@ const Home = () => {
 
         const changeBg = () => {
             gsap.to(container.current, {
-                backgroundColor: "#F4A460",
+                backgroundColor: "#ecf602",
                 duration: 1,
                 scrollTrigger: {
                     trigger: container.current,
@@ -201,8 +201,8 @@ const Home = () => {
         const zoom3d = () => {
             ScrollTrigger.create({
                 trigger: ".cont_3",
-                start: "top top",
-                end: "bottom+=50%",
+                start: "top 80%",
+                end: "bottom bottom",
                 onEnter: () => {
                     document.querySelector(".cont_3").classList.add("on");
                 },
@@ -229,7 +229,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div ref={container}>
+        <div className="main" ref={container}>
             <section className={`visual ${isActiveMotion ? "is_active" : ""}`}>
                 <div className="wrapper_1400">
                     <h2>먹는 것과 즐거움이 만나는 곳</h2>
@@ -302,11 +302,15 @@ const Home = () => {
                     <Title level={2} className="hero_text _4">
                         디티
                     </Title>
-                </div>
-                {/* 움직이는 오브젝트 ex) 공이 튀기는 */}
-            </section>
+                </div>                
+            </section>           
 
-            <Wrapper className="cont_3">
+            <section className="cont_2">
+                <SliderCp bannerList={bannerList} />
+                <SliderCp bannerList={bannerList} isReverse={true} />
+            </section>    
+
+             <Wrapper className="cont_3">
                 <div className="threeD_vision">
                     <div className="vision_box">
                         <h3>question</h3>
@@ -321,18 +325,7 @@ const Home = () => {
                         <p className="text_gradient">suggestion</p>
                     </div>
                 </div>
-            </Wrapper>
-
-            <section className="cont_2">
-                <SliderCp bannerList={bannerList} />
-                <SliderCp bannerList={bannerList} isReverse={true} />
-            </section>                    
-
-            <Wrapper className="wrapper_1400">
-                <section className="cont_4"></section>
-
-                <section className="cont_5"></section>
-            </Wrapper>
+            </Wrapper>                         
 
             <Wrapper className="wrapper_1400">
                 {/* 설문조사 */}

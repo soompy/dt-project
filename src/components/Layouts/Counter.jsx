@@ -15,14 +15,7 @@ const Counter = ({ targetValue, targetDuration }) => {
         return () => controls.stop();
     }, [targetValue, targetDuration]);
 
-    return <div style={styles.count}>{count}</div>;
-};
-
-const styles = {
-    count: {
-        fontSize: "64px",
-        color: "#4ff0b7",
-    },
+    return <span>{count}</span>;
 };
 
 Counter.propTypes = {

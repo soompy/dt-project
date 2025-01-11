@@ -1,89 +1,92 @@
 section {padding: 0 !important;}
-.visual {    
-    position: relative;
-    width: 100%;
-    height: 100vh;
 
-    .wrapper_1400 {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.main {
+    .visual {
+        position: relative;
         width: 100%;
-        height: 100%;        
-        h2 {            
-            position: relative;
-            z-index: 1;
-            font-size: 50px;
-            font-family: "Black Han Sans", sans-serif;
-            text-shadow: 
-            -1px -1px 0 white, 
-             1px -1px 0 white, 
-            -1px  1px 0 white, 
-             1px  1px 0 white;
-        }
-    }
-
-    .obj_box {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        height: 100vh;
     
-        .obj {
-            display: block;
+        .wrapper_1400 {
             position: absolute;
-            width: 7vw;
-            height: 7vw;            
-            &.obj0 {
-                left: 20%;
-                top: 20%;
-            }
-            &.obj1 {
-                right: 10%;
-                top: 40%;
-            }
-            &.obj2 {
-                left: 10%;
-                top: 60%;
-            }
-            &.obj3 {
-                left: 80%;
-                top: 70%;
-            }
-            &.obj4 {
-                left: 60%;
-                top: 50%;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;        
+            h2 {            
+                position: relative;
+                z-index: 1;
+                font-size: 50px;
+                font-family: "Black Han Sans", sans-serif;
+                text-shadow: 
+                -1px -1px 0 white, 
+                 1px -1px 0 white, 
+                -1px  1px 0 white, 
+                 1px  1px 0 white;
             }
         }
-    }
-
-    &.is_active {
-        .obj_box {           
-            .obj {                
-                animation: pulsate 2s infinite ease-in-out;
+    
+        .obj_box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        
+            .obj {
+                display: block;
+                position: absolute;
+                width: 7vw;
+                height: 7vw;            
                 &.obj0 {
-                    animation-delay: 0.25s;
-                    transform-origin: bottom right;
+                    left: 20%;
+                    top: 20%;
                 }
                 &.obj1 {
-                    animation-delay: 0.5s;
-                    transform-origin: left;
+                    right: 10%;
+                    top: 40%;
                 }
                 &.obj2 {
-                    animation-delay: 0.75s;
-                    transform-origin: top right;
+                    left: 10%;
+                    top: 60%;
                 }
                 &.obj3 {
-                    animation-delay: 1s;
-                    transform-origin: top;
+                    left: 80%;
+                    top: 70%;
                 }
                 &.obj4 {
-                    animation-delay: 1.25s;
-                    transform-origin: bottom left;
+                    left: 60%;
+                    top: 50%;
+                }
+            }
+        }
+    
+        &.is_active {
+            .obj_box {           
+                .obj {                
+                    animation: pulsate 2s infinite ease-in-out;
+                    &.obj0 {
+                        animation-delay: 0.25s;
+                        transform-origin: bottom right;
+                    }
+                    &.obj1 {
+                        animation-delay: 0.5s;
+                        transform-origin: left;
+                    }
+                    &.obj2 {
+                        animation-delay: 0.75s;
+                        transform-origin: top right;
+                    }
+                    &.obj3 {
+                        animation-delay: 1s;
+                        transform-origin: top;
+                    }
+                    &.obj4 {
+                        animation-delay: 1.25s;
+                        transform-origin: bottom left;
+                    }
                 }
             }
         }
@@ -149,17 +152,14 @@ section {padding: 0 !important;}
             perspective: 1000px;
             perspective-origin: center 60%;
             .vision_box {
-                &:nth-of-type(1) {        
-                    background: $secondary_1_3;           
+                &:nth-of-type(1) {                                    
                     animation: zoomin1 3s linear 1.5s forwards alternate;            
                 }
-                &:nth-of-type(2) {        
-                    background: $secondary_1_2;                
+                &:nth-of-type(2) {                     
                     transform: translate3d( 0, 0, -1000px );
                     animation: zoomin2 3s linear 1.5s forwards alternate ;
                 }
-                &:nth-of-type(3) {        
-                    background: $secondary_1_1;             
+                &:nth-of-type(3) {               
                     transform: translate3d( 0, 0, -2000px );
                     animation: zoomin3 3s linear 1.5s forwards alternate ;
                 }
