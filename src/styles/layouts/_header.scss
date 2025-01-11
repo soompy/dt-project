@@ -7,12 +7,12 @@
     height: 60px;
     font-size: 24px;
     border-radius: 10%;
-    background: $secondary_1_3;
+    background: $primary_1;
     color: $color_white;
     transition: all 0.3s ease-in-out;
     &.close {
         border-radius: 50%;
-        background: $secondary_1_2;
+        background: $secondary_1_3;
     }
 }
 
@@ -79,7 +79,7 @@
 
                 &:hover {        
                     &:before {
-                        color: $secondary_2_2;
+                        color: $primary_2;
                     }                                
                 }
 

@@ -1,14 +1,16 @@
-.visual {
-    position: relative;
-    background: $primary_2;
-    .spin_obj {
-        span {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: #000;
-            background: $primary_1;
-        }        
+.place {
+    .visual {
+        position: relative;
+        background: $primary_2;
+        .spin_obj {
+            span {
+                width: 80px;
+                height: 80px;
+                border-radius: 20px;
+                background: #000;
+                background: $primary_1;
+            }        
+        }
     }
 }
 

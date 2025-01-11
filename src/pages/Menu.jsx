@@ -30,7 +30,7 @@ const Menu = () => {
             {/* Splitter 레이아웃 */}
             <Splitter
                 style={{
-                    height: 1000,
+                    height: 600,
                     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
                 }}
             >

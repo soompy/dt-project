@@ -2,7 +2,7 @@ section {padding: 0 !important;}
 .visual {    
     position: relative;
     width: 100%;
-    height: 80vh;    
+    height: 100vh;
 
     .wrapper_1400 {
         position: absolute;
@@ -14,8 +14,15 @@ section {padding: 0 !important;}
         width: 100%;
         height: 100%;        
         h2 {            
+            position: relative;
+            z-index: 1;
             font-size: 50px;
             font-family: "Black Han Sans", sans-serif;
+            text-shadow: 
+            -1px -1px 0 white, 
+             1px -1px 0 white, 
+            -1px  1px 0 white, 
+             1px  1px 0 white;
         }
     }
 
@@ -29,8 +36,8 @@ section {padding: 0 !important;}
         .obj {
             display: block;
             position: absolute;
-            width: 12vw;
-            height: 12vw;            
+            width: 7vw;
+            height: 7vw;            
             &.obj0 {
                 left: 20%;
                 top: 20%;
@@ -45,10 +52,10 @@ section {padding: 0 !important;}
             }
             &.obj3 {
                 left: 80%;
-                top: 80%;
+                top: 70%;
             }
             &.obj4 {
-                left: 50%;
+                left: 60%;
                 top: 50%;
             }
         }

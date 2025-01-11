@@ -73,7 +73,6 @@ const NavIcon = ({ isVisible, onClick }) => {
                     }}
                 />
             </motion.g>
-
         </svg>
     );
 };

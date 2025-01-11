@@ -25,9 +25,9 @@ const App = () => {
               token: {
                   ...antdTheme.token,
                   colorPrimary: "#3c89e8",
-                  colorSecondary: "#d89614",
+                  colorSecondary: "#F4A460",
                   colorBgBase: "#1a1a1a",
-                  colorTextBase: "#fff",                  
+                  colorTextBase: "#ffffff",                  
               },
           }
         : antdTheme;

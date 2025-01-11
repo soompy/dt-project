@@ -158,6 +158,19 @@ const Home = () => {
                 .to(".obj4", { delay: -0.3, opacity: 1, duration: 0.3 });
         };
 
+        const changeBg = () => {
+            gsap.to(container.current, {
+                backgroundColor: "#F4A460",
+                duration: 1,
+                scrollTrigger: {
+                    trigger: container.current,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+            });
+        };
+
         const heroTitle = () => {
             tl2.current = gsap
                 .timeline()
@@ -206,6 +219,7 @@ const Home = () => {
         };
                 
         visualMotion();
+        changeBg();
         heroTitle();
         zoom3d();
 
@@ -292,11 +306,6 @@ const Home = () => {
                 {/* 움직이는 오브젝트 ex) 공이 튀기는 */}
             </section>
 
-            <section className="cont_2">
-                <SliderCp bannerList={bannerList} />
-                <SliderCp bannerList={bannerList} isReverse={true} />
-            </section>
-
             <Wrapper className="cont_3">
                 <div className="threeD_vision">
                     <div className="vision_box">
@@ -314,12 +323,10 @@ const Home = () => {
                 </div>
             </Wrapper>
 
-            <Button
-                size="lg"
-                theme="primary_1"
-                type="rounded"
-                label="Go"
-            ></Button>
+            <section className="cont_2">
+                <SliderCp bannerList={bannerList} />
+                <SliderCp bannerList={bannerList} isReverse={true} />
+            </section>                    
 
             <Wrapper className="wrapper_1400">
                 <section className="cont_4"></section>

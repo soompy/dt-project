@@ -14,10 +14,10 @@
         width: 146px;
     }
     &.theme_primary_1 {
-        background: blue;
+        background: $primary_1;
     }
     &.theme_primary_2 {
-        background: orange;
+        background: $primary_2;
     }
     &.basic {
         background: #555555;
