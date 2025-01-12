@@ -1,4 +1,5 @@
 import RouletteGame from "../components/service/Roulette";
+import Wrapper from "../components/Layouts/Wrapper";
 
 const Game = () => {
     const rouletteData = [
@@ -29,11 +30,17 @@ const Game = () => {
     ];
 
     return (
-        <>
+        <div className="game">
+            <section className="visual">
+                <Wrapper className="wrapper_1400">
+                    <h2>jj</h2>
+                </Wrapper>
+            </section>  
+
             <RouletteGame data={rouletteData} />
-            {/* 벽돌깨기
-            뱀꼬리잡기 등 */}
-        </>
+                    {/* 벽돌깨기
+                    뱀꼬리잡기 등 */}          
+        </div>
     );
 };
 

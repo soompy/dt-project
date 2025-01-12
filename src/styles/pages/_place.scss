@@ -1,10 +1,16 @@
 .place {
     .visual {
         position: relative;
-        height: 50vh;
-        font-size: 70px;
-        font-family: "Black Han Sans", sans-serif;
-        .spin_obj {
+        height: 50vh;                
+        .wrapper_1400 {            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+        }
+        .spin_obj {      
+            margin-top: 40px;            
             span {
                 display: block;
                 width: 80px;

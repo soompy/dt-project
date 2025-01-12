@@ -109,7 +109,7 @@ const Place = () => {
         <div className="place">
             <section className="visual">
                 <Wrapper className="wrapper_1400">
-                    <h2>어디서 무엇을</h2>
+                    <h2>어디서 무엇을?</h2>
                     <div className="spin_obj">
                         <motion.span
                             style={{ rotate: isInView ? rotate : 0 }}
