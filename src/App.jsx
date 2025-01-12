@@ -51,9 +51,14 @@ const App = () => {
                     onClick={toggleTheme}
                     style={{
                         position: "fixed",
-                        bottom: "20px",
-                        right: "20px",
+                        bottom: "5%",
+                        right: "5%",
                         zIndex: 100,
+                        fontSize: "16px",
+                        fontFamily: "Black Han Sans",
+                        letterSpacing: "0.02rem",
+                        padding: "22px 18px",
+                        backgroundColor: "#00d4ff",
                     }}
                 >
                     다크모드

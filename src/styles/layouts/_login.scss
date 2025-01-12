@@ -4,4 +4,24 @@
     flex-direction: column;    
     width: 100%;    
     min-height: 100vh;
+
+    h1 {
+        font-size: 50px;
+        font-family: 'Black Han Sans', sans-serif;
+        margin-bottom: 60px;
+    }
+
+    form {
+        width: 400px;
+
+        > div {
+            display: flex;
+            flex-direction: column;   
+
+            .input_area {
+                width: 400px;
+                margin-bottom: 40px;               
+            }
+        }
+    }
 }

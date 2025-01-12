@@ -11,13 +11,16 @@
         width: 106px;
     }
     &.size_lg {
-        width: 146px;
+        width: 100%;
     }
     &.theme_primary_1 {
         background: $primary_1;
     }
     &.theme_primary_2 {
         background: $primary_2;
+    }
+    &.theme_disabled {
+        background: $color_disabled;
     }
     &.basic {
         background: #555555;

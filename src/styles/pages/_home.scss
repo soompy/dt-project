@@ -8,8 +8,10 @@ section {padding: 0 !important;}
     
         .wrapper_1400 {
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            transform: translate(-50%, -50%);
             display: flex;
             align-items: center;
             justify-content: center;

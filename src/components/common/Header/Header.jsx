@@ -29,7 +29,7 @@ const Header = () => {
             ease: "power3.out",
         });
         gsap.to(svgs[3], {
-            bottom: isVisible ? "0%" : "70%",
+            bottom: isVisible ? "0%" : "65%",
             duration: 0.6,
             ease: "power3.out",
         });
@@ -53,7 +53,7 @@ const Header = () => {
                 <div className="header_top_area">
                     {/* <h1>로고</h1> */}
                     <div className="mypage_box">
-                        <Space size={[20, 0]}>
+                        <Space size={[14, 0]}>
                             <Link
                                 data-text="Login"
                                 to="/login"

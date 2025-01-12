@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import InputArea from "../common/Input/Input";
 import Button from "../common/Button/Button";
@@ -17,6 +17,16 @@ const LoginPage = () => {
     })
 
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    useEffect(() => {
+        const isValid = 
+            formValues.email &&
+            formValues.password &&
+            !errors.email &&
+            !errors.password;
+        setIsFormValid(isValid);
+    }, [formValues, errors]);
 
     const handleInputChange = (field, value) => {
         setFormValues({...formValues, [field]: value});
@@ -49,9 +59,7 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="login_page" >
-            <div className="background">{/* 배경 애니메이션 추가 */}</div>
-            
+        <div className="login_page" >                    
             <motion.div                
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -61,11 +69,11 @@ const LoginPage = () => {
             </motion.div>
             
             <form onSubmit={handleSubmit}>
-                <Space size={[20, 0]}>
+                <Space size={[0, 0]}>
                     <InputArea
                         labelTxt="이메일"
                         type="email"
-                        placeholdeValuer="이메일을 입력하세요."
+                        placeholderValue="이메일을 입력하세요."
                         value={formValues.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         alertTxt={errors.email}
@@ -74,7 +82,7 @@ const LoginPage = () => {
                     <InputArea
                         labelTxt="비밀번호"
                         type="password"
-                        placeholdeValuer="비밀번호를 입력하세요."
+                        placeholderValue="비밀번호를 입력하세요."
                         value={formValues.password}
                         onChange={(e) => handleInputChange("password", e.target.value)}
                         alertTxt={errors.password}
@@ -82,8 +90,8 @@ const LoginPage = () => {
                 </Space>
 
                 <Button
-                    size="sm"
-                    theme="primary_2"
+                    size="lg"
+                    theme={isFormValid ? "primary_1" : "disabled"}
                     label="Sign in"
                 />
             </form>    
@@ -91,7 +99,7 @@ const LoginPage = () => {
             <ModalPopup
                 visible={isModalVisible}
                 setVisible={setIsModalVisible}
-                themeClass="primary_2"
+                themeClass="primary_1"
                 onClose={() => setIsModalVisible(false)}
             />
         </div>
