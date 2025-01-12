@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const NavIcon = ({ isVisible, onClick }) => {
+const NavIcon = ({ isVisible }) => {
     return (
         <svg
             viewBox="0 0 96 96"
-            height="1em"
-            onClick={onClick}
+            height="1em"       
             style={{
                 overflow: "visible",
                 cursor: "pointer",
@@ -78,8 +77,7 @@ const NavIcon = ({ isVisible, onClick }) => {
 };
 
 NavIcon.propTypes = {
-    isVisible: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired,
+    isVisible: PropTypes.bool.isRequired,    
 };
 
 export default NavIcon;

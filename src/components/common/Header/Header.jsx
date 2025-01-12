@@ -9,7 +9,7 @@ const Header = () => {
     const headerRef = useRef(null);
     const svgRefs = useRef([]);
 
-    const onClickHeader = () => {
+    const onClickHeader = () => {        
         setIsVisible((prev) => !prev);
 
         const svgs = svgRefs.current;
