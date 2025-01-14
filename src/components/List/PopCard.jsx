@@ -108,15 +108,3 @@ Card.propTypes = {
     hueB: PropTypes.number,
     i: PropTypes.number,
 };
-
-// import { motion } from "framer-motion";
-
-// const PopCard = () => {
-//     return (
-//         <>
-//             <motion.div></motion.div>
-//         </>
-//     )
-// }
-
-// export default PopCard;
