@@ -1,26 +1,53 @@
 .place {
-    .visual {
-        position: relative;
-        height: 50vh;                
-        .wrapper_1400 {            
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 100%;
+    display: flex;
+    align-items: center;
+    // .visual {
+    //     position: relative;
+    //     height: 50vh;                
+    //     .wrapper_1400 {            
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         flex-direction: column;
+    //         height: 100%;
+    //     }
+    //     .spin_obj {      
+    //         margin-top: 40px;            
+    //         span {
+    //             display: block;
+    //             width: 80px;
+    //             height: 80px;
+    //             border-radius: 20px;
+    //             background: #000;
+    //             background: $secondary_1_1;
+    //             border: 10px solid $secondary_2_3;
+    //         }        
+    //     }
+    // }
+    .topic, .cont, .today {
+        position: sticky;
+    }
+    .topic {
+        flex: 1;
+        h2 {
+            font-family: "Ubuntu", serif;
+            font-weight: bold;
+            color: $color_black;                               
+            text-transform: uppercase;
         }
-        .spin_obj {      
-            margin-top: 40px;            
-            span {
-                display: block;
-                width: 80px;
-                height: 80px;
-                border-radius: 20px;
-                background: #000;
-                background: $secondary_1_1;
-                border: 10px solid $secondary_2_3;
-            }        
-        }
+        // ul {
+        //     li {
+
+        //     }
+        // }
+    }
+
+    .cont {
+        flex: 2;
+    }
+
+    .today {
+        flex: 1;
     }
 }
 

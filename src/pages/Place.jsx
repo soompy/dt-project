@@ -9,6 +9,8 @@ import Wrapper from "../components/Layouts/Wrapper";
 import KakaoMap from "../components/Layouts/KakaoMap";
 import { remove } from "../utils/array-utils";
 import SwitchCp from "../components/common/Switch/Switch";
+import ScrollTriggered from "../components/List/PopCard";
+
 // import AnimateList from "../components/List/AnimateList";
 
 const Place = () => {
@@ -107,9 +109,30 @@ const Place = () => {
 
     return (        
         <div className="place">
+            <aside className="topic">
+                <h2>Location</h2>
+                <ScrollTriggered />
+                {/* <ul>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                </ul> */}
+            </aside>
+            
+            <section className="cont">
+                <motion.div></motion.div>
+            </section>
+
+            <aside className="today">
+                
+            </aside>
+
             <section className="visual">
                 <Wrapper className="wrapper_1400">
-                    <h2>어디서 무엇을?</h2>
+                    {/* <h2>어디서 무엇을?</h2> */}
                     <div className="spin_obj">
                         <motion.span
                             style={{ rotate: isInView ? rotate : 0 }}
