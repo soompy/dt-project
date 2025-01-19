@@ -11,7 +11,7 @@ const ListCp = ({ titles, items, children }) => {
             <article className={item.titleClass}>
               {item.text}
               <figure>
-                <img src={item.imageSrc || ""} alt={item.imageAlt || "Image"} />
+                <LazyImage src={item.imageSrc || ""} alt={item.imageAlt || "Image"} />
                 <figcaption>{item.title}</figcaption>
               </figure>
             </article>

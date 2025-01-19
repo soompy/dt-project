@@ -7,6 +7,7 @@ import Modal from "../components/Layouts/Modal";
 import ListCp from "../components/List/List";
 import Button from "../components/common/Button/Button";
 import Wrapper from "../components/Layouts/Wrapper";
+import LazyImage from "../components/LazyImage/LazyImage";
 
 const titles = [
     {
@@ -83,7 +84,7 @@ const Community = () => {
                         <Button size="md" theme="primary_1" label="test"></Button>
                     </div>
                     <div className="right_box">
-                        <img src="https://image.8dogam.com/resized/product/asset/v1/upload/b6f743ddaa124a07af887627258c85fb.jpg?type=big&res=2x&ext=webp" alt="" />
+                        <LazyImage src="https://image.8dogam.com/resized/product/asset/v1/upload/b6f743ddaa124a07af887627258c85fb.jpg?type=big&res=2x&ext=webp" alt="" />
                     </div>
                 </div>
             </Wrapper>
@@ -93,7 +94,7 @@ const Community = () => {
                     {boxData.map((box) => (
                         <div key={box.id}>
                             <span className="profile">
-                                <img src="" alt="작성자 프로필 이미지" />
+                                <LazyImage src="" alt="작성자 프로필 이미지" />
                             </span>
                             <div className="cont_info">
                                 <h3>{box.title}</h3>

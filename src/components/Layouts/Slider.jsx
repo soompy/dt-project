@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import LazyImage from "../LazyImage/LazyImage";
 
 const SliderCp = ({ bannerList, isReverse = false }) => {
     const swiperRef = useRef(null);
@@ -38,7 +39,7 @@ const SliderCp = ({ bannerList, isReverse = false }) => {
             >
                 {bannerList.map((banner, index) => (
                     <SwiperSlide key={index} style={{ flex: "0 0 auto" }}>
-                        <img src={banner.imgSrc} alt={banner.title} />
+                        <LazyImage src={banner.imgSrc} alt={banner.title} />
                         <span className="desc-box">{banner.txt}</span>
                     </SwiperSlide>
                 ))}

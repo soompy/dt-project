@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import { Typography } from "antd";
 const { Title } = Typography;
 import { useGSAP } from "@gsap/react/dist";
+import LazyImage from "../components/LazyImage/LazyImage";
 import {
     mandu00,
     mandu01,
@@ -166,19 +167,19 @@ const Home = () => {
                 <div className="wrapper_1400"></div>
                 <div className="obj_box">
                     <span className="obj obj0">
-                        <img src={mandu05} alt="만두" />
+                        <LazyImage src={mandu05} alt="만두" />
                     </span>
                     <span className="obj obj1">
-                        <img src={mandu05} alt="만두" />
+                        <LazyImage src={mandu05} alt="만두" />
                     </span>
                     <span className="obj obj2">
-                        <img src={mandu05} alt="만두" />
+                        <LazyImage src={mandu05} alt="만두" />
                     </span>
                     <span className="obj obj3">
-                        <img src={mandu05} alt="만두" />
+                        <LazyImage src={mandu05} alt="만두" />
                     </span>
                     <span className="obj obj4">
-                        <img src={mandu05} alt="만두" />
+                        <LazyImage src={mandu05} alt="만두" />
                     </span>                    
                 </div>
             </section>
