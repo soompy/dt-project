@@ -50,7 +50,7 @@ $font-family_1: 'Noto Sans KR', 'Apple SD Gothic Neo', Sans-serif;
         top: 0;
         width: 100%;
         height: 100%;
-    
+
         span {
             position: absolute;
             display: block;
@@ -59,12 +59,12 @@ $font-family_1: 'Noto Sans KR', 'Apple SD Gothic Neo', Sans-serif;
             font-size: 50px;
             transform-origin: center;
             transition: all 0.7s ease-in-out;
-    
+
             @for $i from 1 through 10 {
-                &:nth-child(#{$i}) {                                    
+                &:nth-child(#{$i}) {
                     $randomY: math.random(100) + 0%;
                     $randomR: math.random(360) * 1deg;
-            
+
                     top: $randomY;
                     transform: rotate($randomR);
                 }
@@ -73,29 +73,30 @@ $font-family_1: 'Noto Sans KR', 'Apple SD Gothic Neo', Sans-serif;
             &:nth-child(odd) {
                 left: 5px;
             }
-    
-            &:nth-child(even) {             
+
+            &:nth-child(even) {
                 right: 5px;
             }
-    
+
             // &:nth-child(3) {                
             //     transform: translate(0, 65%);
             // }
-    
+
             // &:nth-child(4) {
             //     transform: translate(100%, 95%);
             // }
         }
     }
-    
+
     .top_visual {
         height: 80vh;
         padding: 80px 0;
 
         strong {
-            font-size: 50px;            
+            font-size: 50px;
             font-weight: bold;
         }
+
         p {
             font-size: 40px;
             margin-top: 20px;
@@ -127,20 +128,37 @@ $font-family_1: 'Noto Sans KR', 'Apple SD Gothic Neo', Sans-serif;
 }
 
 .video_wrap {
-    width: 500px;
-    margin: auto;
-}
-
-.fixed_box {
-    width: 500px;
     position: relative;
+    width: 580px;
+    margin: 100px auto;
 
-    .video {
-        width: 500px;
+    .fixed_box {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.scrolled {
+        opacity: 1;
+        position: sticky;
+        top: 50%;
+        z-index: 5;
+        transform: translateY(-50%);                
     }
 }
 
+
 .fixed_description {
+    height: 200vh;
     opacity: 0;
     font-size: 30px;
     font-weight: bold;
