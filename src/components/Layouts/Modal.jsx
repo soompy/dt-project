@@ -4,7 +4,7 @@ import InputArea from "../common/Input/Input";
 import { CloseOutlined } from "@ant-design/icons";
 import Button from "../common/Button/Button";
 
-const Modal = ({ visible, setVisible, isCancelMode = false, onClose, themeClass = "" }) => {    
+const ModalPopup = ({ visible, setVisible, isCancelMode = false, onClose, themeClass = "" }) => {    
     const [inputValue, setInputValue] = useState("");    
 
     const close = () => {
@@ -95,7 +95,7 @@ const Modal = ({ visible, setVisible, isCancelMode = false, onClose, themeClass 
     ) : null;
 };
 
-Modal.propTypes = {
+ModalPopup.propTypes = {
     isCancelMode: PropTypes.bool,
     onClose: PropTypes.func,
     visible: PropTypes.bool.isRequired,
@@ -103,4 +103,4 @@ Modal.propTypes = {
     themeClass: PropTypes.string,
 };
 
-export default Modal;
+export default ModalPopup;

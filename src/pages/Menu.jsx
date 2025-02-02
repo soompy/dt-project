@@ -1,8 +1,76 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import Wrapper from "../components/Layouts/Wrapper";
 import { Flex, Splitter, Typography } from "antd";
-import { Wheel } from "react-custom-roulette";
+import Counter from "../components/Layouts/Counter";
+import { useState } from "react";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    LineChart,
+    Line,
+    PieChart,
+    Pie,
+    Cell,
+} from "recharts";
+
+const FoodRankingChart = ({ data, chartType }) => {
+    const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff6f61", "#a29bfe"];
+
+    // 득표수 기준으로 데이터 정렬
+    const sortedData = [...data].sort((a, b) => b.votes - a.votes);
+
+    return (
+        <ResponsiveContainer width="100%" height={300}>
+            {chartType === "bar" && (
+                <BarChart data={sortedData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="votes" fill="#8884d8" />
+                </BarChart>
+            )}
+            {chartType === "line" && (
+                <LineChart data={sortedData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="votes" stroke="#8884d8" />
+                </LineChart>
+            )}
+            {chartType === "pie" && (
+                <PieChart>
+                    <Pie
+                        data={sortedData}
+                        dataKey="votes"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={100}
+                        fill="#8884d8"
+                        label
+                    >
+                        {sortedData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                    </Pie>
+                    <Tooltip />
+                </PieChart>
+            )}
+        </ResponsiveContainer>
+    );
+};
+
+FoodRankingChart.propTypes = {
+    data: PropTypes.array.isRequired,
+    chartType: PropTypes.string.isRequired,
+};
 
 const Desc = ({ text }) => (
     <Flex justify="center" align="center" style={{ height: "100%" }}>
@@ -19,69 +87,54 @@ const Desc = ({ text }) => (
 Desc.propTypes = {
     text: PropTypes.string,
 };
-const data = [
-    {
-        option: "Apple Vision Pro",
-        style: { backgroundColor: "gray", textColor: "white" },
-        percentage: 3,
-    },
-    {
-        option: "LG TV",
-        style: { backgroundColor: "red", textColor: "white" },
-        percentage: 7,
-    },
-    {
-        option: "SAMSUNG 에어컨",
-        style: { backgroundColor: "blue", textColor: "white" },
-        percentage: 10,
-    },
-    {
-        option: "꽝",
-        style: { backgroundColor: "white", textColor: "red" },
-        percentage: 80,
-    },
-];
 
 const Menu = () => {
-    const [mustSpin, setMustSpin] = useState(false);
-    const [prizeNumber, setPrizeNumber] = useState(0);
+    const [chartType, setChartType] = useState("bar");
 
-    const handleSpinClick = () => {
-        if (!mustSpin) {
-            const pivot = Math.floor(Math.random() * 99 + 1);
-            let stack = 0;
-
-            const percentage = data.map((row) => row.percentage);
-            let newPrizeNumber = null;
-
-            percentage.some((row, idx) => {
-                stack += row;
-                if (pivot <= stack) {
-                    newPrizeNumber = idx;
-                    return true;
-                }
-            });
-
-            setPrizeNumber(newPrizeNumber);
-            setMustSpin(true);
-        }
-    };
-
-    const StopSpinning = () => {
-        setMustSpin(false);
-        alert(`${data[prizeNumber].option}이 당첨되셨습니다`);
-    };
+    const foodRankingData = [
+        { name: "떡볶이", votes: 50 },
+        { name: "치킨", votes: 120 },
+        { name: "피자", votes: 100 },
+        { name: "라면", votes: 80 },
+        { name: "삼겹살", votes: 60 },
+    ];
 
     return (
         <div className="menu">
-            <Wrapper className="wrapper_1400">
-              <h2 className="text_slogan">요즘 핫한 음식?</h2>
+            <Wrapper className="wrapper_1400 main_txt">
+                <h2 className="text_slogan">요즘 핫한 음식</h2>
+                <p className="text_slogan">
+                    <p className="text_gradient">
+                        <Counter targetValue={200} targetDuration={1} />
+                    </p>
+                </p>
             </Wrapper>
+
+            {/* 순위차트 */}
+            <Wrapper className="wrapper_1400">
+                <h3>음식 순위</h3>
+                <div style={{ marginBottom: 20 }}>
+                    <label htmlFor="chartType" style={{ marginRight: 10 }}>
+                        차트 형태 선택:
+                    </label>
+                    <select
+                        id="chartType"
+                        value={chartType}
+                        onChange={(e) => setChartType(e.target.value)}
+                    >
+                        <option value="bar">막대 차트</option>
+                        <option value="line">라인 차트</option>
+                        <option value="pie">파이 차트</option>
+                    </select>
+                </div>
+                <FoodRankingChart data={foodRankingData} chartType={chartType} />
+            </Wrapper>
+
             {/* 스크롤 시 그라데이션으로 배경색이 바뀌도록 적용 */}
             {/* Splitter 레이아웃 */}
             <Splitter
                 style={{
-                    height: 1000,
+                    height: 600,
                     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
                 }}
             >
@@ -100,6 +153,9 @@ const Menu = () => {
                 </Splitter.Panel>
             </Splitter>
             {/* Wrapper와 룰렛 */}
+
+
+            {/* 게임 모음 페이지 분리 */}
             {/* 좌측에는 선물상자가 열리는 효과, 우측엔 추천 룰렛 */}
             <Wrapper className="wrapper_1400">
                 <Flex>
@@ -107,25 +163,7 @@ const Menu = () => {
                         dddd
                     </Typography.Title>
                 </Flex>
-            </Wrapper>
-            <Wrapper className="wrapper_1400">
-                <div className="present_effect_box"></div>
-
-                <div className="roulette">
-                    <Wheel
-                        spinDuration={0.2} // 스핀 속도
-                        startingOptionIndex={Math.floor(
-                            Math.random() * data.length
-                        )} // 초기 위치 랜덤
-                        mustStartSpinning={mustSpin} // 회전 여부
-                        prizeNumber={prizeNumber} // 당첨 인덱스
-                        data={data} // 룰렛 데이터
-                        onStopSpinning={StopSpinning} // 회전 종료 시 동작
-                    />
-                    <button onClick={handleSpinClick}>SPIN</button>
-                    <div>{prizeNumber}</div>
-                </div>
-            </Wrapper>
+            </Wrapper>     
         </div>
     );
 };

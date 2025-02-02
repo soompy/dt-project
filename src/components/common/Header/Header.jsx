@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
+import { Space } from "antd";
+import NavIcon from "./NavIcon";
 
 const Header = () => {
     const [isVisible, setIsVisible] = useState(false);
     const headerRef = useRef(null);
     const svgRefs = useRef([]);
 
-    const onClickHeader = () => {
+    const onClickHeader = () => {        
         setIsVisible((prev) => !prev);
 
         const svgs = svgRefs.current;
@@ -27,26 +29,49 @@ const Header = () => {
             ease: "power3.out",
         });
         gsap.to(svgs[3], {
-            bottom: isVisible ? "0%" : "70%",
+            bottom: isVisible ? "0%" : "65%",
             duration: 0.6,
             ease: "power3.out",
         });
     };
 
     const onLinkClick = () => {
-        setIsVisible(false); // 링크 클릭 시 'on' 클래스 제거
+        setIsVisible(false);
     };
 
     return (
         <div ref={headerRef}>
             <section className="btn_top_box">
-                <button className="btn_header" onClick={onClickHeader}>
-                    D
+                <button className={`btn_header ${isVisible ? "close" : ""}`} onClick={onClickHeader}>                    
+                    <NavIcon isVisible={isVisible} onClick={onClickHeader} />
                 </button>
             </section>
 
+            <div id="render"></div>
+
             <section className={`full_header ${isVisible ? "on" : ""}`}>
-                <div className="logo">{/* <h1>로고</h1> */}</div>
+                <div className="header_top_area">
+                    {/* <h1>로고</h1> */}
+                    <div className="mypage_box">
+                        <Space size={[14, 0]}>
+                            <Link
+                                data-text="Login"
+                                to="/login"
+                                onClick={onLinkClick}
+                            >
+                                로그인
+                            </Link>
+
+                            <Link
+                                data-text="Join"
+                                to="/join"
+                                onClick={onLinkClick}
+                            >
+                                회원가입
+                            </Link>
+                        </Space>                        
+                    </div>
+                </div>                
 
                 <nav className="nav">
                     <ul>
@@ -84,6 +109,15 @@ const Header = () => {
                         </li>
                         <li>
                             <Link
+                                data-text="Game"
+                                to="/game"
+                                onClick={onLinkClick}
+                            >
+                                Game
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 data-text="Notice"
                                 to="/notice"
                                 onClick={onLinkClick}
@@ -92,7 +126,7 @@ const Header = () => {
                             </Link>
                         </li>
                     </ul>
-                </nav>
+                </nav>                
 
                 <div className="full_bg">
                     {[...Array(4)].map((_, index) => (

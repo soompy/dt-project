@@ -6,13 +6,17 @@
     justify-content: flex-start;
 
     .notice_title_box {
-        font-size: 100px;
+        flex: 1;
         font-family: 'Black Han Sans', sans-serif;
         margin-right: 130px;
+        p {
+            font-size: 80px;
+            line-height: 90px;
+        }
     }
 
     .board_container {
-        flex: 1;
+        flex: 2;
     }
 }
 

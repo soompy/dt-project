@@ -32,7 +32,7 @@ Button.propTypes = {
     isEnabled: PropTypes.bool,
     size: PropTypes.oneOf(["sm", "md", "lg"]),
     type: PropTypes.oneOf(["square", "rounded"]),
-    theme: PropTypes.oneOf(["primary_1", "primary_2", ""]),
+    theme: PropTypes.oneOf(["primary_1", "primary_2", "disabled"]),
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
 };

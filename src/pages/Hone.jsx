@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Wrapper from "../components/Layouts/Wrapper";
 import Button from "../components/common/Button/Button";
-import CheckUi from "../components/common/Checkbox/CheckBox";
+import CheckUi from "../components/common/Checkbox/CheckUi";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import PropTypes from "prop-types";
@@ -18,6 +18,9 @@ import {
     mandu05,
 } from "../assets/images/home";
 import SliderCp from "../components/Layouts/Slider";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { distance } from "framer-motion";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -27,6 +30,7 @@ const radioOptions = [
     { value: "o3", label: "Custom C" },
     { value: "o4", label: "Custom D" },
 ];
+
 const checkboxOptions = [
     { value: "k1", label: "m A" },
     { value: "k2", label: "m B" },
@@ -73,9 +77,59 @@ const bannerList = [
     },
 ];
 
+const grid = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+];
+const size = 60;
+const gap = 10;
+
+const Square = ({ active, setActive, colIndex, rowIndex, x, y }) => {
+    const isDragging = colIndex === active.col && rowIndex === active.row;
+    const diagonalIndex = (360 / 6) * (colIndex + rowIndex);
+    const d = distance(
+        { x: active.col, y: active.row },
+        { x: colIndex, y: rowIndex }
+    );
+    const springConfig = {
+        stiffness: Math.max(700 - d * 120, 0),
+        damping: 20 + d * 5,
+    };
+    const dx = useSpring(x, springConfig);
+    const dy = useSpring(y, springConfig);
+
+    return (
+        <motion.div
+            drag
+            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+            dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
+            dragElastic={1}
+            onDragStart={() => setActive({ row: rowIndex, col: colIndex })}
+            style={{
+                background: `hsla(calc(var(--base-hue) + ${diagonalIndex}), 80%, 60%, 1)`,
+                width: size,
+                height: size,
+                top: rowIndex * (size + gap),
+                left: colIndex * (size + gap),
+                position: "absolute",
+                borderRadius: "50%",
+                x: isDragging ? x : dx,
+                y: isDragging ? y : dy,
+                zIndex: isDragging ? 1 : 0,
+            }}
+        />
+    );
+};
+
 const Home = () => {
     const container = useRef();
     const [isActiveMotion, setIsActiveMotion] = useState(false);
+
+    const [active, setActive] = useState({row: 0, col: 0});
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
     useGSAP(
         () => {
@@ -103,6 +157,19 @@ const Home = () => {
                 .to(".obj2", { delay: -0.1, opacity: 1, duration: 0.3 })
                 .to(".obj3", { delay: -0.2, opacity: 1, duration: 0.3 })
                 .to(".obj4", { delay: -0.3, opacity: 1, duration: 0.3 });
+        };
+
+        const changeBg = () => {
+            gsap.to(container.current, {
+                backgroundColor: "#ecf602",
+                duration: 1,
+                scrollTrigger: {
+                    trigger: container.current,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+            });
         };
 
         const heroTitle = () => {
@@ -135,10 +202,10 @@ const Home = () => {
         const zoom3d = () => {
             ScrollTrigger.create({
                 trigger: ".cont_3",
-                start: "top top",
-                end: "bottom+=50%",          
+                start: "top 80%",
+                end: "bottom bottom",
                 onEnter: () => {
-                    document.querySelector(".cont_3").classList.add("on");                    
+                    document.querySelector(".cont_3").classList.add("on");
                 },
                 onLeave: () => {
                     document.querySelector(".cont_3").classList.remove("on");
@@ -150,9 +217,10 @@ const Home = () => {
                     document.querySelector(".cont_3").classList.remove("on");
                 },
             });
-        }
-
+        };
+                
         visualMotion();
+        changeBg();
         heroTitle();
         zoom3d();
 
@@ -162,9 +230,11 @@ const Home = () => {
     }, []);
 
     return (
-        <div ref={container}>
+        <div className="main" ref={container}>
             <section className={`visual ${isActiveMotion ? "is_active" : ""}`}>
-                <div className="wrapper_1400"></div>
+                <div className="wrapper_1400">
+                    <h2>먹는 것과 즐거움이 만나는 곳</h2>
+                </div>
                 <div className="obj_box">
                     <span className="obj obj0">
                         <LazyImage src={mandu05} alt="만두" />
@@ -182,7 +252,42 @@ const Home = () => {
                         <LazyImage src={mandu05} alt="만두" />
                     </span>                    
                 </div>
+
+                <motion.div
+                    animate={{ "--base-hue": 360 }}
+                    initial={{ "--base-hue": 0 }}
+                    transition={{ duration: 10, loop: Infinity, ease: "linear" }}
+                    style={{ width: "100%", height: "100%" }}
+                >
+                    <motion.div
+                        style={{
+                            display: "flex",
+                            width: (size + gap) * 4 - gap,
+                            height: (size + gap) * 4 - gap,
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            position: "relative",
+                            perspective: 500
+                        }}
+                    >
+                    {grid.map((row, rowIndex) =>
+                        row.map((_item, colIndex) => (
+                        <Square
+                            x={x}
+                            y={y}
+                            active={active}
+                            setActive={setActive}
+                            rowIndex={rowIndex}
+                            colIndex={colIndex}
+                            key={rowIndex + colIndex}
+                        />
+                        ))
+                    )}
+                    </motion.div>
+                </motion.div>
             </section>
+
 
             <section className="cont_1">
                 <div className="full_text_hero">
@@ -198,16 +303,15 @@ const Home = () => {
                     <Title level={2} className="hero_text _4">
                         디티
                     </Title>
-                </div>
-                {/* 움직이는 오브젝트 ex) 공이 튀기는 */}
-            </section>
+                </div>                
+            </section>           
 
             <section className="cont_2">
                 <SliderCp bannerList={bannerList} />
                 <SliderCp bannerList={bannerList} isReverse={true} />
-            </section>
+            </section>    
 
-            <Wrapper className="cont_3">
+             <Wrapper className="cont_3">
                 <div className="threeD_vision">
                     <div className="vision_box">
                         <h3>question</h3>
@@ -222,20 +326,7 @@ const Home = () => {
                         <p className="text_gradient">suggestion</p>
                     </div>
                 </div>
-            </Wrapper>
-
-            <Button
-                size="lg"
-                theme="primary_1"
-                type="rounded"
-                label="Go"
-            ></Button>
-
-            <Wrapper className="wrapper_1400">
-                <section className="cont_4"></section>
-
-                <section className="cont_5"></section>
-            </Wrapper>
+            </Wrapper>                         
 
             <Wrapper className="wrapper_1400">
                 {/* 설문조사 */}

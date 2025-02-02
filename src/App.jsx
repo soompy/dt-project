@@ -12,6 +12,9 @@ import antdTheme from "./styles/theme";
 import { useState } from "react";
 import Notice from "./pages/Notice";
 import EventPage from "./pages/Event";
+import LoginPage from "./components/Layouts/Login";
+import JoinForm from "./components/Layouts/Join";
+import Game from "./pages/Game";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -23,9 +26,9 @@ const App = () => {
               token: {
                   ...antdTheme.token,
                   colorPrimary: "#3c89e8",
-                  colorSecondary: "#d89614",
+                  colorSecondary: "#F4A460",
                   colorBgBase: "#1a1a1a",
-                  colorTextBase: "#fff",
+                  colorTextBase: "#ffffff",                  
               },
           }
         : antdTheme;
@@ -44,7 +47,21 @@ const App = () => {
                 }}
             >
                 <Header />
-                <Button type="primary" onClick={toggleTheme}>
+                <Button
+                    type="primary"
+                    onClick={toggleTheme}
+                    style={{
+                        position: "fixed",
+                        bottom: "5%",
+                        right: "5%",
+                        zIndex: 100,
+                        fontSize: "16px",
+                        fontFamily: "Black Han Sans",
+                        letterSpacing: "0.02rem",
+                        padding: "22px 18px",
+                        backgroundColor: "#00d4ff",
+                    }}
+                >
                     다크모드
                 </Button>
                 <Routes>
@@ -54,6 +71,9 @@ const App = () => {
                     <Route path="/community" element={<Community />} />
                     <Route path="/notice" element={<Notice />} />
                     <Route path="/event" element={<EventPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/join" element={<JoinForm />} />
+                    <Route path="/game" element={<Game />} />
                 </Routes>
                 <Footer />
             </section>

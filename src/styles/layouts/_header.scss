@@ -1,12 +1,25 @@
 .btn_header {
-    position: sticky;
-    top: 0;
+    overflow: hidden;
+    position: fixed;    
     z-index: 100;
-    right: 10vw;
-    width: 30px;
-    height: 30px;
-    background: $secondary_1_3;
+    right: 5%;
+    top: 4%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 10%;
+    background: $primary_1;
     color: $color_white;
+    transition: all 0.3s ease-in-out;
+    
+    svg {
+        pointer-events: none;
+    }
+    
+    &.close {
+        border-radius: 50%;
+        background: $secondary_1_3;
+    }
 }
 
 .full_header {    
@@ -27,16 +40,36 @@
     &.on {
         visibility: visible;
         opacity: 1;
-        transform: translateY(0);
-    }
+        transform: translateY(0);     
+    }    
 }
 
-.logo {
-    h1 {
-        font-size: 24px;
-        margin: 0;
-        font-weight: bold;
-        color: $color_black;
+.header_top_area {
+    .logo {
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            font-weight: bold;
+            color: $color_black;
+        }
+    }
+
+    .mypage_box {
+        position: absolute;
+        right: 12%;
+        top: 6.5%;
+        a {
+            font-size: 18px;
+            font-family: 'Black Han Sans', sans-serif;            
+            letter-spacing: 0.02rem;
+            padding: 14px 16px;
+            border-radius: 8px;
+            &:hover {
+                font-weight: bold;
+                color: $color_black;
+                background: $secondary_2_3;                
+            }
+        }
     }
 }
 
@@ -66,7 +99,7 @@
 
                 &:hover {        
                     &:before {
-                        color: $secondary_2_2;
+                        color: $primary_2;
                     }                                
                 }
 
@@ -80,7 +113,7 @@
                     color: transparent;
                     content: attr(data-text);         
                     -webkit-text-stroke: 1px $color_black;
-                    transform: translate(2%, 1%);
+                    transform: translate(3%, 1%);
                     transition: color .3s ease, -webkit-text-stroke .3s ease, transform .3s ease;
                     text-transform: uppercase;                         
                     z-index: -1;
