@@ -3,13 +3,14 @@
     position: relative;
     width: 100%;
     max-width: 1400px;
-    margin: auto;    
-    &.flex_center_column {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+    margin: auto;        
+}
+
+.flex_center_column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .list {
