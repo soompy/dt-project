@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import LazyImage from "../components/LazyImage/LazyImage";
 import giftbox from "../assets/images/event/giftbox.png";
+import handLeft from "../assets/images/event/handLeft.png";
+import handRight from "../assets/images/event/handRight.png";
+import coin from "../assets/images/event/coin.webp";
 
 const EventPage = () => {
   const [visualRef, inView] = useInView({
@@ -34,13 +37,13 @@ const EventPage = () => {
       }
     };
   }, []);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (iframeRef.current && isScrolled) {
-        const scrollPosition = window.scrollY;        
-        const videoDuration = 1;        
-        const videoProgress = scrollPosition / 1000;
+        const videoDuration = 1;
+        const videoProgress =
+          window.scrollY / document.documentElement.scrollHeight;
 
         if (iframeRef.current.contentWindow) {
           iframeRef.current.contentWindow.postMessage(
@@ -60,6 +63,16 @@ const EventPage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isScrolled]);
+
+  const { ref: descRef, inView: descInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  const { ref: threeDRef, inView: threeDInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
   return (
     <div className="event_wrapper">
@@ -83,16 +96,6 @@ const EventPage = () => {
 
       <div className="wrapper_1400">
         <div className="flex_center_column top_visual" ref={visualRef}>
-          <motion.strong
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{
-              scale: inView ? 1 : 0.5,
-              opacity: inView ? 1 : 0,
-            }}
-            transition={{ duration: 1 }}
-          >
-            2025년 맞이
-          </motion.strong>
           <motion.p
             initial={{ x: -100, opacity: 0 }}
             animate={{
@@ -101,18 +104,30 @@ const EventPage = () => {
             }}
             transition={{ duration: 1 }}
           >
-            특별한 이벤트
+            &#x1F38A;
           </motion.p>
+          <motion.strong
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{
+              scale: inView ? 1 : 0.5,
+              opacity: inView ? 1 : 0,
+            }}
+            transition={{ duration: 1 }}
+          >
+            2025년, <br />
+            새로운 시작을 응원합니다!
+          </motion.strong>
+
           <LazyImage src={giftbox} className="event_giftbox" alt="상품" />
         </div>
 
-        <div className="list_container">
-          {Array.from({ length: 45 }).map((_, index) => (
-            <div key={index} className="list_item">
-              Item {index + 1}
-            </div>
+        <ul className="text_list_container">
+          {Array.from({ length: 34 }).map((_, index) => (
+            <li key={index} className="text_list_item">
+              띵동~~ 선물 {index + 1}이 왔어요!!
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className={`video_wrap ${isScrolled ? "scrolled" : ""}`}>
           <div className="fixed_box" ref={videoRef}>
@@ -130,10 +145,125 @@ const EventPage = () => {
           </div>
         </div>
 
-        <div className="fixed_description">Fixed Description</div>
+        <div className="fixed_description" ref={descRef}>
+          <motion.h4
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            &#x1F4A5; 2025년 새해 프로모션 혜택 &#x1F4A5;
+          </motion.h4>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          >
+            &#x2705; 신년 감사 쿠폰 – 전 고객 대상 최대 25% 할인{" "}
+          </motion.p>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          >
+            &#x2705; 럭키드로우 이벤트 – 2025년을 여는 행운의 경품 증정{" "}
+          </motion.p>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          >
+            &#x2705; 첫 구매 고객 혜택 – 신규 가입 시 웰컴 포인트 지급
+          </motion.p>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          >
+            &#x2705; 한정판 신년 기념 상품 – 오직 지금만! 특별한 신년 에디션
+            출시
+          </motion.p>
 
-        <div className="poster hidden_area">
-          <div className="poster__parallax"></div>
+          <motion.h4
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            &#x1F381; 이벤트 기간
+          </motion.h4>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            &#x1F4C5; 2025년 1월 27일(월) ~ 1월 12일(수)
+          </motion.p>
+
+          <motion.h4
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            &#x1F3AF; 참여 방법{" "}
+          </motion.h4>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          >
+            &#x1F449; 홈페이지 & 앱에서 쿠폰 다운로드 후 사용!
+          </motion.p>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          >
+            &#x1F449; 이벤트 페이지에서 럭키드로우 응모하기!
+          </motion.p>
+
+          <motion.h4
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            새로운 한 해, 더 큰 기회와 멋진 순간들을 함께 만들어가요!
+          </motion.h4>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: descInView ? 0 : -100, opacity: descInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
+            &#x2728; 2025년에도 멋진 시작을 응원합니다! &#x2728;
+          </motion.p>
+        </div>
+
+        <div className="threeD_visual" ref={threeDRef}>
+          <motion.span
+            initial={{ x: -100, opacity: 0 }}
+            animate={{
+              x: threeDInView ? 0 : -100,
+              opacity: threeDInView ? 1 : 0,
+            }}
+            transition={{ duration: 0.4, ease: "easeIn" }}
+          >
+            <LazyImage src={handLeft} className="event_leftHand" alt="왼손" />
+          </motion.span>
+          <motion.span>
+            <LazyImage src={coin} className="event_coin" alt="코인" />
+          </motion.span>
+          <motion.span
+            initial={{ x: 100, opacity: 0 }}
+            animate={{
+              x: threeDInView ? 0 : 100,
+              opacity: threeDInView ? 1 : 0,
+            }}
+            transition={{ duration: 0.4, ease: "easeIn" }}
+          >
+            <LazyImage
+              src={handRight}
+              className="event_leftHand"
+              alt="오른손"
+            />
+          </motion.span>
         </div>
       </div>
     </div>
