@@ -4,6 +4,7 @@ import InputArea from "../common/Input/Input";
 import Button from "../common/Button/Button";
 import { Space } from "antd";
 import ModalPopup from "./Modal";
+import PropTypes from "prop-types";
 
 const LoginPage = () => {
     const [formValues, setFormValues] = useState({
@@ -59,7 +60,7 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="login_page" >                    
+        <div className="form_wrap">
             <motion.div                
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -104,6 +105,10 @@ const LoginPage = () => {
             />
         </div>
     );
+};
+
+Button.propTypes = {
+    theme: PropTypes.oneOf(["primary_1", "disabled"]),
 };
 
 export default LoginPage;

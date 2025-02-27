@@ -59,3 +59,34 @@
     50% { transform: translateX(15px); }
     75% { transform: translateX(-15px); }
 }
+
+select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid $secondary_1_3;
+    border-radius: 8px;
+    background-color: $color_white;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: #82ca9d;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $secondary_1_2;
+        box-shadow: $boxShadow;
+    }
+
+    option {
+        background-color: $color_white;        
+        padding: 10px;
+        font-size: 16px;
+        &:hover {
+            background-color: $secondary_1_1;
+            color: $color_white;
+        }
+    }
+}

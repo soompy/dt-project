@@ -3,6 +3,7 @@ import Wrapper from "../components/Layouts/Wrapper";
 import { Flex, Splitter, Typography } from "antd";
 import Counter from "../components/Layouts/Counter";
 import { useState } from "react";
+import CustomSelect from "../components/common/Select/Select";
 import {
     BarChart,
     Bar,
@@ -91,6 +92,13 @@ Desc.propTypes = {
 const Menu = () => {
     const [chartType, setChartType] = useState("bar");
 
+
+    const options = [
+        { value: "bar", label: "막대 차트" },
+        { value: "line", label: "라인 차트" },
+        { value: "pie", label: "파이 차트" },
+    ];
+
     const foodRankingData = [
         { name: "떡볶이", votes: 50 },
         { name: "치킨", votes: 120 },
@@ -116,16 +124,8 @@ const Menu = () => {
                 <div style={{ marginBottom: 20 }}>
                     <label htmlFor="chartType" style={{ marginRight: 10 }}>
                         차트 형태 선택:
-                    </label>
-                    <select
-                        id="chartType"
-                        value={chartType}
-                        onChange={(e) => setChartType(e.target.value)}
-                    >
-                        <option value="bar">막대 차트</option>
-                        <option value="line">라인 차트</option>
-                        <option value="pie">파이 차트</option>
-                    </select>
+                    </label>            
+                    <CustomSelect value={chartType} options={options} onChange={setChartType} width={250} />
                 </div>
                 <FoodRankingChart data={foodRankingData} chartType={chartType} />
             </Wrapper>
@@ -151,19 +151,7 @@ const Menu = () => {
                         </Splitter.Panel>
                     </Splitter>
                 </Splitter.Panel>
-            </Splitter>
-            {/* Wrapper와 룰렛 */}
-
-
-            {/* 게임 모음 페이지 분리 */}
-            {/* 좌측에는 선물상자가 열리는 효과, 우측엔 추천 룰렛 */}
-            <Wrapper className="wrapper_1400">
-                <Flex>
-                    <Typography.Title type="secondary" level={5}>
-                        dddd
-                    </Typography.Title>
-                </Flex>
-            </Wrapper>     
+            </Splitter>           
         </div>
     );
 };
