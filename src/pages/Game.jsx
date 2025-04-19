@@ -1,7 +1,19 @@
 import RouletteGame from "../components/service/Roulette";
 import Wrapper from "../components/Layouts/Wrapper";
+import Tab from "../components/common/Tab/Tab";
+import Table from "../components/common/Table/Table"
+import { useState } from "react";
+import users from "../data/mocks/users";
+import products from "../data/mocks/products"
+import orders from "../data/mocks/orders"
+import reviews from "../data/mocks/reviews"
 
 const Game = () => {
+    const [activeTab, setActiveTab] = useState(0);
+
+    const tabNames = ['회원', '상품', '주문', '리뷰'];
+    const tableData = [users, products, orders, reviews];
+
     const rouletteData = [
         {
             option: "Apple Vision Pro",
@@ -38,8 +50,20 @@ const Game = () => {
             </section>  
 
             <RouletteGame data={rouletteData} />
-                    {/* 벽돌깨기
-                    뱀꼬리잡기 등 */}          
+                {/* 벽돌깨기
+                뱀꼬리잡기 등 */}      
+
+                {/* 탭과 테블 뎐동 연습 */}
+                <Tab 
+                    tabList={tabNames}
+                    activeTab={activeTab} 
+                    onTabClick={setActiveTab} 
+                />
+
+                {tableData.map((data, index) => index === activeTab ? (
+                    <Table key={index} data={data} />
+                ): null
+            )}    
         </div>
     );
 };
